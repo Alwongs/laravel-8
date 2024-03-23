@@ -1,0 +1,111 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans';
+    color: rgb(41, 67, 90);
+}
+body {
+    height: 100%;
+}
+ul {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+
+
+
+.website {
+    display: flex;
+    height: 100vh;
+    :first-child {
+        flex: 0 0 300px;
+    }
+    :last-child {
+        flex: 1 1 auto;
+    }
+}
+
+
+
+
+.page-title {
+    padding-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.notification  {
+    border: 1px solid rgb(202, 133, 133);
+    background-color: rgb(230, 211, 211);
+    border-radius: 3px;
+    max-width: 900px;
+    min-width: 320px;
+    min-height: 35px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 10px;
+}
+
+.migration-report-list {
+    border: 1px solid rgba($baseText, .3);
+    box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.3);
+    width: fit-content;
+    min-width: 300px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 8px;
+    li {
+        padding-left: 25px;
+        position: relative;
+        margin: 10px;        
+    }
+    li:before {
+        content: '✔';
+        position: absolute; top: 0; left: 0;
+        color: green;        
+    }
+}
+
+.container {
+    // border: 3px solid green;
+    width: 1200px;
+    margin: 0 auto;
+    padding: 0 10px;
+    gap: 10px;
+    @media (min-width: $desktop-min) and (max-width: $desktop-max) {
+        max-width: 1000px;            
+        width: 100%;           
+    }     
+    @media (min-width: $tablet-min) and (max-width: $tablet-max) {  
+        width: 100%;         
+    }           
+    @media (max-width: $mobile-max) {  
+        width: 100%;                
+    }      
+}
+
+.container-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;    
+}
+
+.main {
+    min-height: 100%;
+}
+
+.main-auth {
+    width: fit-content;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}

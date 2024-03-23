@@ -11,9 +11,18 @@ const mix = require('laravel-mix');
  |
  */
 
- mix.sass('resources/sass/app.scss', 'public/css');
+
+mix.js('resources/js/app.js', 'public/js')
+    .sass('resources/sass/site/app.scss', 'public/css/site')
+    .sass('resources/sass/admin/app.scss', 'public/css/admin');
 
 // mix.js('resources/js/app.js', 'public/js').postCss('resources/css/app.css', 'public/css', [
 //     require('tailwindcss'),
 //     require('autoprefixer'),
 // ]);
+
+// mix.webpackConfig({
+//     stats: {
+//         children: true,
+//     },
+// });
