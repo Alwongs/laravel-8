@@ -20,10 +20,10 @@ a {
 .website {
     display: flex;
     height: 100vh;
-    :first-child {
+    &__aside {
         flex: 0 0 300px;
     }
-    :last-child {
+    &__page {
         flex: 1 1 auto;
     }
 }

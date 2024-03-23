@@ -20,7 +20,7 @@
         <div class="website">
             @include('layouts.aside')
 
-            <div class="page">
+            <div class="website__page page">
                 @include('layouts.admin-top-panel')
 
                 <main>

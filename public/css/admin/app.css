@@ -25,10 +25,10 @@ a {
   display: flex;
   height: 100vh;
 }
-.website :first-child {
+.website__aside {
   flex: 0 0 300px;
 }
-.website :last-child {
+.website__page {
   flex: 1 1 auto;
 }
 
@@ -123,68 +123,13 @@ a {
   box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.3);
   height: 50px;
   padding: 0 15px;
-}
-
-.container-header {
-  height: 100%;
-}
-.container-header a {
-  color: white;
-  text-decoration: none;
-}
-
-.auth-block {
-  width: 150px;
-  height: 100%;
-  position: relative;
-  background-color: inherit;
-}
-.auth-block__display {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: flex-end;
-  gap: 4px;
-  background-color: #2b6e8d;
-  position: absolute;
-  z-index: 3;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
 }
-.auth-block__trigger {
-  background-size: contain;
+.top-panel a {
   color: white;
-  cursor: pointer;
-  width: 15px;
-  height: 15px;
-  margin-top: 3px;
-  position: relative;
-}
-.auth-block__navigation {
-  box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.2);
-  background-color: #2b6e8d;
-  position: absolute;
-  top: -350px;
-  right: 0;
-  width: 100%;
-  z-index: 2;
-  transition: 0.2s;
-  opacity: 0;
-}
-.auth-block__navigation a {
-  border-bottom: 1px solid grey;
-  display: block;
-  padding: 7px 20px;
-  color: white;
-  transition: 0.4s;
-}
-.auth-block__navigation a:hover {
-  background-color: #46809b;
-}
-.auth-block__navigation.auth-navigation-show {
-  top: 50px;
-  opacity: 1;
+  flex: none;
 }
 
 .aside {
