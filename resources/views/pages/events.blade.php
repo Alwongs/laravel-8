@@ -6,8 +6,8 @@
     <main class="main">
 
         <div class="add-btn-group">
-            <a class="add-btn btn-icon-add" title="add new post" href="#"></a>
-            <a class="add-btn btn-icon-delete" title="add new post" href="#"></a>
+            <a class="add-btn btn-icon-add" title="add new post" href="{{ route('events.create') }}"></a>
+            <!-- <a class="add-btn btn-icon-delete" title="add new post" href="#"></a> -->
         </div> 
 
     </main>

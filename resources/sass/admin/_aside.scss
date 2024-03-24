@@ -1,5 +1,6 @@
 .aside {
     background-color: rgb(166, 199, 207);
+    padding-top: 100px;
 }
 
 .aside-navigation {
@@ -8,5 +9,9 @@
         display: block;
         padding: 15px 0 10px 20px;
         border-bottom: 1px solid grey;
+        transition: 0.2s;
+    }
+    a:hover {
+        background-color: rgb(184, 220, 230);        
     }
 }
