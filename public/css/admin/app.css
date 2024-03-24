@@ -259,6 +259,7 @@ a {
   background-position: center;
 }
 .btn-icon-add {
+  background-image: url(/images/add-dark.svg?2d667acdd6efd715611701e78f0bac9e);
   background-repeat: no-repeat;
   background-position: center;
 }
