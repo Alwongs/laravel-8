@@ -20,9 +20,9 @@
 
         <div class="form__input-block input-type-block">
             <select name="form_data[type]" type="text" placeholder="type" required >
-                <option value="unique">unique</option>
-                <option value="monthly">monthly</option>
-                <option value="annual">annual</option>
+                <option value="U">unique</option>
+                <option value="M">monthly</option>
+                <option value="A">annual</option>
             </select>
         </div>  
 

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Event;
 
 class EventController extends Controller
 {
@@ -34,7 +36,22 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+        $day = $request->form_data['date']['day'];
+        $month = $request->form_data['date']['month'];
+        $year = $request->form_data['date']['year'];
+        $timestamp = strtotime("$month/$day/$year");
+
+        $data = new Event();
+        $data = $request->form_data;
+        $data['user_id'] = Auth::user()->id;
+        $data['timestamp'] = $timestamp;
+        unset($data['date']);
+
+        // dd($data);
+
+        Event::create($data);
+        return redirect()->route('events.index');
+
     }
 
     /**
