@@ -14,13 +14,12 @@ class CreateEventsTable extends Migration
     public function up()
     {
         Schema::create('events', function (Blueprint $table) {
-            $table->id('event_id');
+            $table->id();
             $table->string('event');
-            $table->string('description');
+            $table->text('description')->nullable();
             $table->timestamp('timestamp');
-            $table->string('type');
-            $table->string('user_id');
-          
+            $table->string('type', 2);
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
