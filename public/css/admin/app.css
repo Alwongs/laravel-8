@@ -127,6 +127,103 @@ a {
   background-color: rgb(184, 220, 230);
 }
 
+.manage {
+  width: 800px;
+  margin: 0 auto;
+}
+
+.manage-list__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 83, 118, 0.2);
+  padding: 6px 0;
+  margin-bottom: 8px;
+}
+.manage-list__item:last-child {
+  margin-bottom: 20px;
+}
+
+.manage-list .cell__id {
+  flex: 0 0 40px;
+}
+@media (max-width: 767px) {
+  .manage-list .cell__id {
+    display: none;
+  }
+}
+.manage-list .cell__title {
+  flex: 1 0 300px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  width: 80ch;
+  max-width: 100%;
+  text-transform: capitalize;
+}
+.manage-list .cell__title a {
+  color: #0073a4;
+}
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .manage-list .cell__title {
+    width: 60ch;
+    max-width: 100%;
+  }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .manage-list .cell__title {
+    width: 60ch;
+    max-width: 100%;
+  }
+}
+@media (max-width: 767px) {
+  .manage-list .cell__title {
+    font-size: 20px;
+    width: 20ch;
+    max-width: 100%;
+    flex: 1 0 200px;
+  }
+}
+.manage-list .cell__date {
+  flex: 0 0 120px;
+}
+@media (max-width: 1023px) {
+  .manage-list .cell__date {
+    flex: 0 0 100px;
+  }
+}
+@media (max-width: 767px) {
+  .manage-list .cell__date {
+    display: none;
+  }
+}
+.manage-list .cell__type {
+  flex: 0 0 80px;
+}
+@media (max-width: 1439px) {
+  .manage-list .cell__type {
+    display: none;
+  }
+}
+.manage-list .cell__btn-block {
+  display: flex;
+  justify-content: center;
+  flex: 0 0 76px;
+  gap: 5px;
+}
+@media (max-width: 767px) {
+  .manage-list .cell__btn-block {
+    flex: 0 0 36px;
+  }
+}
+
+@media (max-width: 767px) {
+  .cell__btn-block button:first-child {
+    display: none;
+  }
+}
+
 .header h1 {
   width: 300px;
   margin: 0 auto;

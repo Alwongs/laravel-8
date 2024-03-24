@@ -15,7 +15,10 @@ class EventController extends Controller
      */
     public function index()
     {
-        return view('pages/events');
+
+        $events = Event::all();
+
+        return view('pages/admin/events/manage', compact('events'));
     }
 
     /**
@@ -25,7 +28,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        return view('pages/update');
+        return view('pages/admin/events/update');
     }
 
     /**

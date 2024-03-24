@@ -1,0 +1,86 @@
+.manage {
+    width: 800px;
+    margin: 0 auto;
+}
+
+.manage-list__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba($baseText, .2);
+    padding: 6px 0;  
+    margin-bottom: 8px;
+    &:last-child {
+        margin-bottom: 20px;
+    }
+}
+
+// .manage-list li div {
+//     height: fit-content;
+// }
+.manage-list .cell {
+
+    &__id {
+        flex: 0 0 40px;
+        @media (max-width: $mobile-max) {  
+            display: none;                
+        }         
+    }
+    &__title {
+        flex: 1 0 300px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; 
+        width: 100%;
+        width: 80ch;            
+        max-width: 100%; 
+        text-transform: capitalize;
+        a {
+            color: lighten($baseText, 9); 
+        }
+   
+        @media (min-width: $desktop-min) and (max-width: $desktop-max) {
+            width: 60ch;             
+            max-width: 100%;            
+        }     
+        @media (min-width: $tablet-min) and (max-width: $tablet-max) {  
+            width: 60ch;             
+            max-width: 100%;         
+        }           
+        @media (max-width: $mobile-max) {  
+            font-size: 20px;
+            width: 20ch;             
+            max-width: 100%;             
+            flex: 1 0 200px;               
+        }            
+    }
+    &__date {
+        flex: 0 0 120px;
+        @media (max-width: $tablet-max) {  
+            flex: 0 0 100px;        
+        } 
+        @media (max-width: $mobile-max) {  
+            display: none;
+        }                 
+    }
+    &__type {
+        flex: 0 0 80px;     
+        @media (max-width: $desktop-max) {  
+            display: none;                
+        }         
+    }
+    &__btn-block {
+        display: flex;
+        justify-content: center;
+        flex: 0 0 76px;
+        gap: 5px;
+        @media (max-width: $mobile-max) {  
+            flex: 0 0 36px;        
+        } 
+    }
+}
+.cell__btn-block button:first-child {
+    @media (max-width: $mobile-max) {  
+        display: none;                
+    }      
+}
