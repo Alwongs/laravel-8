@@ -27,8 +27,8 @@
                     @endif
                 </div>
 
-                <a href="/events/edit?event_id={$event.event_id}&return_url={$return_url}" class="cell-btn btn-icon-edit"></a>
-                <a href="/events/delete?event_id={$event.event_id}&return_url={$return_url}" class="cell-btn btn-icon-delete"></a>      
+                <a href="{{ route('events.edit', $event->id) }}" class="cell-btn btn-icon-edit"></a>
+                <a href="{{ route('events.destroy', $event->id) }}" class="cell-btn btn-icon-delete"></a>      
             </li>        
             @endforeach
         </ul>        

@@ -76,21 +76,21 @@
 }
 
 .btn-icon-edit {
-    // background-image:  url('../images/icons/edit-dark.svg'); 
+    background-image:  url('../../images/icons/edit-dark.svg'); 
     background-repeat: no-repeat;      
     background-size: 60%; 
     background-position: center;  
     &:hover {
-        // background-image:  url('../images/icons/edit-light.svg');         
+        background-image:  url('../../images/icons/edit-light.svg');         
     } 
 }
 .btn-icon-delete {
-    // background-image:  url('../images/icons/delete-dark.svg'); 
+    background-image:  url('../../images/icons/delete-dark.svg'); 
     background-repeat: no-repeat;      
     background-size: 65%; 
     background-position: center;   
     &:hover {
-        // background-image:  url('../images/icons/delete-light.svg'); 
+        background-image:  url('../../images/icons/delete-light.svg'); 
         background-size: 67%;         
     }  
 }
@@ -111,7 +111,7 @@
     background-position: center;    
     &:hover {
         background-color: $btnGreen;
-        // background-image:  url('../images/icons/add-light.svg');              
+        background-image:  url('../../images/icons/add-light.svg');              
     }     
 }
 

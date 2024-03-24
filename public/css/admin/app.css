@@ -322,16 +322,23 @@ a {
 }
 
 .btn-icon-edit {
+  background-image: url(/images/edit-dark.svg?53cfaf3622000793dd2b1176498262f6);
   background-repeat: no-repeat;
   background-size: 60%;
   background-position: center;
 }
+.btn-icon-edit:hover {
+  background-image: url(/images/edit-light.svg?a4adcd50763513733b2e7cabaeb7dd33);
+}
+
 .btn-icon-delete {
+  background-image: url(/images/delete-dark.svg?928068bd01309f3a9272dcf8a45634d5);
   background-repeat: no-repeat;
   background-size: 65%;
   background-position: center;
 }
 .btn-icon-delete:hover {
+  background-image: url(/images/delete-light.svg?45e67aa335268791e2961d0f60f785c3);
   background-size: 67%;
 }
 
@@ -347,6 +354,7 @@ a {
 }
 .btn-icon-add:hover {
   background-color: #009859;
+  background-image: url(/images/add-light.svg?211c4d10340b7c8e29fd243cd12ac64e);
 }
 
 .btn-block {

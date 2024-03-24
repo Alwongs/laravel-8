@@ -7,11 +7,11 @@
         @csrf
 
         <div class="form__input-block">
-            <input name="form_data[event]" type="text" placeholder="title" required />
+            <input name="form_data[event]" type="text" placeholder="title" value="{{ isset($event) ? $event->event : '' }}" required />
         </div>    
 
         <div class="form__textarea-block">
-            <textarea name="form_data[description]" placeholder="description"></textarea>
+            <textarea name="form_data[description]" placeholder="description">{{ isset($event) ? $event->description : '' }}</textarea>
         </div>
 
         <div class="form__input-block input-date-block">

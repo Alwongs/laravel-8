@@ -8,35 +8,17 @@ use App\Models\Event;
 
 class EventController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-
         $events = Event::all();
-
         return view('pages/admin/events/manage', compact('events'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return view('pages/admin/events/update');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $day = $request->form_data['date']['day'];
@@ -50,11 +32,8 @@ class EventController extends Controller
         $data['timestamp'] = $timestamp;
         unset($data['date']);
 
-        // dd($data);
-
         Event::create($data);
         return redirect()->route('events.index');
-
     }
 
     /**
@@ -74,9 +53,10 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Event $event)
     {
-        //
+        // $event = Event::find($id);
+        return view('pages/admin/events/update', compact('event'));        
     }
 
     /**
