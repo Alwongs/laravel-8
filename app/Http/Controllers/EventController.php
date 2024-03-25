@@ -80,7 +80,6 @@ class EventController extends Controller
     public function destroy(Event $event)
     {
 
-        dd($event);
         $event->delete();
         return redirect()->back()->with('info', 'Запись успешно удалена'); 
     }

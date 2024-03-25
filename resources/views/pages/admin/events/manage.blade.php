@@ -28,7 +28,11 @@
                 </div>
 
                 <a href="{{ route('events.edit', $event->id) }}" class="cell-btn btn-icon-edit"></a>
-                <a href="{{ route('events.destroy', $event->id) }}" class="cell-btn btn-icon-delete"></a>      
+                <form action="{{ route('events.destroy', $event->id) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button href="{{ route('events.destroy', $event->id) }}" class="cell-btn btn-icon-delete"></button> 
+                </form>     
             </li>        
             @endforeach
         </ul>        

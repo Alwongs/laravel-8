@@ -3,8 +3,8 @@
         <h1>{{ __('Update') }}</h1>
     </header>
 
-    @if($event)
-        <form class="form" action="{{ route('events.update') }}" method="POST">
+    @if(isset($event))
+        <form class="form" action="{{ route('events.update', $event) }}" method="POST">
     @else
         <form class="form" action="{{ route('events.store') }}" method="POST">
     @endif
@@ -24,9 +24,9 @@
 
         <div class="form__input-block input-type-block">
             <select name="form_data[type]" type="text" placeholder="type" required >
-                @if($event && $event->type == 'U')<option value="U" selected>unique</option>@else<option value="U">unique</option>@endif                    
-                @if($event && $event->type == 'M')<option value="M" selected>monthly</option>@else<option value="M">monthly</option>@endif
-                @if($event && $event->type == 'A')<option value="A" selected>annual</option>@else<option value="A">annual</option>@endif
+                @if(isset($event) && $event->type == 'U')<option value="U" selected>unique</option>@else<option value="U">unique</option>@endif                    
+                @if(isset($event) && $event->type == 'M')<option value="M" selected>monthly</option>@else<option value="M">monthly</option>@endif
+                @if(isset($event) && $event->type == 'A')<option value="A" selected>annual</option>@else<option value="A">annual</option>@endif
             </select>
         </div>  
 
