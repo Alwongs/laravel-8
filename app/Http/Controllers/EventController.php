@@ -55,7 +55,6 @@ class EventController extends Controller
      */
     public function edit(Event $event)
     {
-        // $event = Event::find($id);
         return view('pages/admin/events/update', compact('event'));        
     }
 
@@ -66,9 +65,22 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Event $event)
     {
-        //
+        $day = $request->form_data['date']['day'];
+        $month = $request->form_data['date']['month'];
+        $year = $request->form_data['date']['year'];
+        $timestamp = strtotime("$month/$day/$year");
+
+        $event->event = $request->form_data['event'];
+        $event->description = $request->form_data['description'];
+        $event->timestamp = $timestamp;
+        $event->type = $request->form_data['type'];
+        unset($event->date);
+
+        $event->update();
+
+        return redirect()->route('events.edit', compact('event'));
     }
 
     /**
@@ -79,7 +91,6 @@ class EventController extends Controller
      */
     public function destroy(Event $event)
     {
-
         $event->delete();
         return redirect()->back()->with('info', 'Запись успешно удалена'); 
     }

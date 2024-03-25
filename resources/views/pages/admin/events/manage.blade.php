@@ -13,7 +13,7 @@
         <ul class="manage-list">
             @foreach($events as $event)
             <li class="manage-list__item">
-                <div class="cell__date">{{ $event->timestamp }}</div>
+                <div class="cell__date">{{ date('d.m.Y', $event->timestamp); }}</div>
 
                 <div class="cell__title">{{ $event->event }}</div> 
 

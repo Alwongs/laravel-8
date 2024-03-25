@@ -5,6 +5,7 @@
 
     @if(isset($event))
         <form class="form" action="{{ route('events.update', $event) }}" method="POST">
+            @method('PUT')
     @else
         <form class="form" action="{{ route('events.store') }}" method="POST">
     @endif
@@ -32,7 +33,13 @@
 
         <div class="form__btn-block">
             <button class="btn">Back</button>
-            <button type="submit" class="btn btn-green">Save</button>
+                <button type="submit" class="btn btn-green">
+                    @if(isset($event))
+                        Update
+                    @else
+                        Save
+                    @endif
+                </button>
         </div>
     </form>
 
