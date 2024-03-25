@@ -1,6 +1,6 @@
 <x-admin-layout>
     <header class="header">
-        <h1>{{ __('Update') }}</h1>
+        <h1>@isset($event){{ __('Update') }}@else{{ __('New event') }}@endisset</h1>
     </header>
 
     @if(isset($event))

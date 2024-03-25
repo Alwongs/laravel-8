@@ -4,15 +4,23 @@
 
 <select name="form_data[date][day]" type="text">
     @for ($i = 1; $i < 32; $i++)
-        @if (isset($event) && date('d', $event->timestamp) == $i)
-            <option value="{{ $i }}" selected>{{ $i }}</option>
+        @isset($event)
+            @if (date('d', $event->timestamp) == $i)
+                <option value="{{ $i }}" selected>{{ $i }}</option>
+            @else
+                <option value="{{ $i }}">{{ $i }}</option>
+            @endif
         @else
-            <option value="{{ $i }}">{{ $i }}</option>
-        @endif
+            @if (date('d') == $i)
+                <option value="{{ $i }}" selected>{{ $i }}</option>
+            @else
+                <option value="{{ $i }}">{{ $i }}</option>               
+            @endif
+        @endisset
     @endfor
 </select>
 
-<select name="form_data[date][month]" type="text" required >
+<select name="form_data[date][month]" type="text">
     @foreach($months as $key => $value)
         @if (isset($event) && date('m', $event->timestamp) == $key)
             <option value="{{ $key }}" selected>{{ $value }}</option>
@@ -22,7 +30,7 @@
     @endforeach
 </select>   
 
-<select name="form_data[date][year]" type="text" required >
+<select name="form_data[date][year]" type="text">
     @for ($i = 2024; $i < 2034; $i++)
         @if (isset($event) && date('Y', $event->timestamp) == $i)
             <option value="{{ $i }}" selected>{{ $i }}</option>

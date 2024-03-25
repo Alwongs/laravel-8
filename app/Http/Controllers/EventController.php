@@ -43,14 +43,11 @@ class EventController extends Controller
 
     public function update(Request $request, Event $event)
     {
-        $timestamp = (new DateHelper())->dateToTimestamp($request->form_data['date']);
-
         $event->event = $request->form_data['event'];
         $event->description = $request->form_data['description'];
-        $event->timestamp = $timestamp;
+        $event->timestamp = (new DateHelper())->dateToTimestamp($request->form_data['date']);
         $event->type = $request->form_data['type'];
         unset($event->date);
-
         $event->update();
 
         return redirect()->route('events.edit', compact('event'));
