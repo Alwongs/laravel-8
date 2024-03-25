@@ -22,20 +22,36 @@
 
 <select name="form_data[date][month]" type="text">
     @foreach($months as $key => $value)
-        @if (isset($event) && date('m', $event->timestamp) == $key)
-            <option value="{{ $key }}" selected>{{ $value }}</option>
+        @isset($event)
+            @if (date('m', $event->timestamp) == $key)
+                <option value="{{ $key }}" selected>{{ $value }}</option>
+            @else
+                <option value="{{ $key }}">{{ $value }}</option>
+            @endif
         @else
-            <option value="{{ $key }}">{{ $value }}</option>
-        @endif
+            @if (date('m') == $key)
+                <option value="{{ $key }}" selected>{{ $value }}</option>
+            @else
+                <option value="{{ $key }}">{{ $value }}</option>
+            @endif
+        @endisset
     @endforeach
 </select>   
 
 <select name="form_data[date][year]" type="text">
     @for ($i = 2024; $i < 2034; $i++)
-        @if (isset($event) && date('Y', $event->timestamp) == $i)
-            <option value="{{ $i }}" selected>{{ $i }}</option>
+        @isset($event)
+            @if (date('Y', $event->timestamp) == $i)
+                <option value="{{ $i }}" selected>{{ $i }}</option>
+            @else
+                <option value="{{ $i }}">{{ $i }}</option>
+            @endif
         @else
-            <option value="{{ $i }}">{{ $i }}</option>
-        @endif
+            @if (date('Y') == $i)
+                <option value="{{ $i }}" selected>{{ $i }}</option>
+            @else
+                <option value="{{ $i }}">{{ $i }}</option>
+            @endif        
+        @endisset
     @endfor
 </select>  
