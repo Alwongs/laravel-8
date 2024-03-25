@@ -77,8 +77,11 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Event $event)
     {
-        //
+
+        dd($event);
+        $event->delete();
+        return redirect()->back()->with('info', 'Запись успешно удалена'); 
     }
 }
