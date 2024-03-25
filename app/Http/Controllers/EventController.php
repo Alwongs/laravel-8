@@ -36,35 +36,16 @@ class EventController extends Controller
         return redirect()->route('events.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Event $event)
     {
         return view('pages/admin/events/update', compact('event'));        
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Event $event)
     {
         $day = $request->form_data['date']['day'];
@@ -83,12 +64,6 @@ class EventController extends Controller
         return redirect()->route('events.edit', compact('event'));
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Event $event)
     {
         $event->delete();
