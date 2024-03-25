@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Event;
+use App\Functions\DateHelper;
 
 class EventController extends Controller
 {
@@ -21,18 +22,12 @@ class EventController extends Controller
 
     public function store(Request $request)
     {
-        $day = $request->form_data['date']['day'];
-        $month = $request->form_data['date']['month'];
-        $year = $request->form_data['date']['year'];
-        $timestamp = strtotime("$month/$day/$year");
-
-        $data = new Event();
         $data = $request->form_data;
         $data['user_id'] = Auth::user()->id;
-        $data['timestamp'] = $timestamp;
+        $data['timestamp'] = (new DateHelper())->dateToTimestamp($request->form_data['date']);
         unset($data['date']);
-
         Event::create($data);
+        
         return redirect()->route('events.index');
     }
 
@@ -48,10 +43,7 @@ class EventController extends Controller
 
     public function update(Request $request, Event $event)
     {
-        $day = $request->form_data['date']['day'];
-        $month = $request->form_data['date']['month'];
-        $year = $request->form_data['date']['year'];
-        $timestamp = strtotime("$month/$day/$year");
+        $timestamp = (new DateHelper())->dateToTimestamp($request->form_data['date']);
 
         $event->event = $request->form_data['event'];
         $event->description = $request->form_data['description'];

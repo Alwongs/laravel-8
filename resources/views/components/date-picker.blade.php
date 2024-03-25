@@ -24,7 +24,7 @@
 
 <select name="form_data[date][year]" type="text" required >
     @for ($i = 2024; $i < 2034; $i++)
-        @if (isset($event) && date('d', $event->timestamp) == $i)
+        @if (isset($event) && date('Y', $event->timestamp) == $i)
             <option value="{{ $i }}" selected>{{ $i }}</option>
         @else
             <option value="{{ $i }}">{{ $i }}</option>
