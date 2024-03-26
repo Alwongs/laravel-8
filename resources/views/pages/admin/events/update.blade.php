@@ -33,13 +33,13 @@
 
         <div class="form__btn-block">
             <button class="btn">Back</button>
-                <button type="submit" class="btn btn-green">
-                    @if(isset($event))
-                        Update
-                    @else
-                        Save
-                    @endif
-                </button>
+            <button type="submit" class="btn btn-green">
+                @if(isset($event))
+                    Update
+                @else
+                    Save
+                @endif
+            </button>
         </div>
     </form>
 
