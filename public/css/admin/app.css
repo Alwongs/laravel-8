@@ -492,10 +492,15 @@ a {
 }
 
 .btn-icon-postpone {
+  background-image: url(/images/postpone-dark.svg?f1a19c79716d773c88752607102cf550);
   background-repeat: no-repeat;
   background-size: 65%;
   background-position: center;
 }
+.btn-icon-postpone:hover {
+  background-image: url(/images/postpone-light.svg?ae154cefd6205ee875f8be45d31c748c);
+}
+
 .btn-icon-add {
   background-image: url(/images/add-dark.svg?2d667acdd6efd715611701e78f0bac9e);
   background-repeat: no-repeat;

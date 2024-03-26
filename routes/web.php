@@ -23,6 +23,7 @@ Route::get('/', [HomeController::class, 'index']);
 Route::middleware('auth')->group(function () {
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/events/postpone/{id}', [DashboardController::class, 'postpone'])->name('events.postpone');
 
     Route::resources([
         'events' => EventController::class, 

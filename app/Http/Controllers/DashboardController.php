@@ -12,18 +12,27 @@ class DashboardController extends Controller
 
         $events = Event::all();
 
-        list($overdue, $today, $tomorrow, $in_week) = EventHelper::chunck_events_to_periods($events);
+        list($overdue, $today, $tomorrow, $in_week) = EventHelper::chunck_events_to_periods($events); 
 
-        dd($overdue);
+        return view('dashboard', compact('events', 'overdue', 'today', 'tomorrow', 'in_week'));
+    }
 
-        $this->pageData = [
-            'page_title' => "Dashboard",
-            'overdue' => $overdue,
-            'today' => $today,
-            'tomorrow' => $tomorrow,
-            'in_week' => $in_week,            
-        ]; 
+    public function postpone($id) {
 
-        return view('dashboard', compact('events'));
+        $event = Event::find($id);
+
+        if ($event->type == 'M') {
+            $new_timestamp = strtotime('+1 month', $event->timestamp);
+        } 
+
+        if ($event->type == 'A') {
+            $new_timestamp = strtotime('+1 year', $event->timestamp);
+        } 
+
+        $event->timestamp = $new_timestamp;
+
+        $event->update();   
+        
+        return redirect()->route('dashboard');
     }
 }

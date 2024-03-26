@@ -9,25 +9,13 @@
         </div>    
 
         <div class="dashboard-row">  
-
-            @include('components.dashboard-card')  
-
-            @include('components.dashboard-card')  
-
-            @include('components.dashboard-card')  
-
-            <!-- {include file='components/dashboard-card.tpl' title='Overdue' events=$overdue class='dashboard-item'}
-
-            {include file='components/dashboard-card.tpl' title='Today' events=$today class='dashboard-item'}
-
-            {include file='components/dashboard-card.tpl' title='Tomorrow' events=$tomorrow class='dashboard-item'} -->
+            <x-dashboard-card :events="$overdue" :title="'overdue'" :class="'overdue'"/>
+            <x-dashboard-card :events="$today" :title="'today'" :class="'today'"/>
+            <x-dashboard-card :events="$tomorrow" :title="'tomorrow'" :class="'tomorrow'"/>
         </div>
 
         <div class="dashboard-row-second">
-
-        @include('components.dashboard-card')  
-
-            <!-- {include file='components/dashboard-card.tpl' title='In week' events=$in_week class='dashboard-item'} -->
+            <x-dashboard-card :events="$in_week" :title="'in week'" :class="'in-week'"/>
         </div>
     </main>
 
