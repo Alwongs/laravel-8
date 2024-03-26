@@ -10,7 +10,13 @@
                     <div class="dashboard-card-item__btn-block"> 
                         <a href="{{ route('events.edit', $event->id) }}"  class="cell-btn btn-icon-edit"></a>
                         @if($event->type == 'U')
-                            <a href="{{ route('events.destroy', $event->id) }}" class="cell-btn btn-icon-delete"></a>
+
+                            <form action="{{ route('events.destroy', $event->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button href="{{ route('events.destroy', $event->id) }}" class="cell-btn btn-icon-delete"></button> 
+                            </form>  
+
                         @else
                             <a href="{{ route('events.postpone', $event->id) }}" class="cell-btn btn-icon-postpone"></a>
                         @endif

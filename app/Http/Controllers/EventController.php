@@ -25,6 +25,10 @@ class EventController extends Controller
 
     public function store(Request $request)
     {
+        
+
+        DateHelper::validateDate($request->form_data['date']);
+
         $data = $request->form_data;
         $data['user_id'] = Auth::user()->id;
         $data['timestamp'] = (new DateHelper())->dateToTimestamp($request->form_data['date']);

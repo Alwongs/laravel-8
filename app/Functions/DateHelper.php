@@ -6,6 +6,28 @@ class DateHelper
 {
     const TIMEZONE = 'Europe/Ulyanovsk';
 
+    const MONTH_WITH_31_DAYS = [1, 3, 5, 7, 8, 10, 12];
+    const MONTH_WITH_30_DAYS = [4, 6, 9, 11];
+
+    public static function isLeap($year)
+    {
+        return date("L", mktime(0,0,0, 7,7, $year));
+    }
+
+    public static function validateDate($date)
+    {
+        $isLeap = self::isLeap($date['year']);
+
+        if ($isLeap) {
+            dd('высокосный');
+        } else {
+            dd('не высокосный');
+        }
+
+        // if ($date['month'] =)
+
+    }
+
     public function dateToTimestamp($date)
     {
         $day = $date['day'];
@@ -14,21 +36,6 @@ class DateHelper
         $timestamp = strtotime("$month/$day/$year");
         return $timestamp;
     }   
-
-    // public function makeTimeStamp($year='', $month='', $day='') 
-    // {
-    //    if(empty($year)) {
-    //        $year = strftime('%Y');
-    //    }
-    //    if(empty($month)) {
-    //        $month = strftime('%m');
-    //    }
-    //    if(empty($day)) {
-    //        $day = strftime('%d');
-    //    }
-    
-    //    return mktime(0, 0, 0, $month, $day, $year);
-    // }
 
     public static function convertTimestampToDate($timestamp) {
         $date = new \DateTime();
