@@ -25,9 +25,10 @@ class EventController extends Controller
 
     public function store(Request $request)
     {
-        
-
-        DateHelper::validateDate($request->form_data['date']);
+        $isValidDate = DateHelper::validateDate($request->form_data['date']);
+        if (!$isValidDate) {
+            return redirect()->back()->with('info', 'Not valid date!'); 
+        }
 
         $data = $request->form_data;
         $data['user_id'] = Auth::user()->id;
