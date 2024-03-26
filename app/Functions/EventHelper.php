@@ -6,7 +6,7 @@ use App\Functions\DateHelper;
 
 class EventHelper
 {
-    public static function chunck_events_to_periods($events)
+    public static function chunckEventsToPeriods($events)
     {
         $now = DateHelper::getCurrentDate();
     

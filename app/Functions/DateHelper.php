@@ -4,7 +4,6 @@ namespace App\Functions;
 
 class DateHelper
 {
-
     const TIMEZONE = 'Europe/Ulyanovsk';
 
     public function dateToTimestamp($date)
@@ -16,20 +15,20 @@ class DateHelper
         return $timestamp;
     }   
 
-    public function makeTimeStamp($year='', $month='', $day='') 
-    {
-       if(empty($year)) {
-           $year = strftime('%Y');
-       }
-       if(empty($month)) {
-           $month = strftime('%m');
-       }
-       if(empty($day)) {
-           $day = strftime('%d');
-       }
+    // public function makeTimeStamp($year='', $month='', $day='') 
+    // {
+    //    if(empty($year)) {
+    //        $year = strftime('%Y');
+    //    }
+    //    if(empty($month)) {
+    //        $month = strftime('%m');
+    //    }
+    //    if(empty($day)) {
+    //        $day = strftime('%d');
+    //    }
     
-       return mktime(0, 0, 0, $month, $day, $year);
-    }
+    //    return mktime(0, 0, 0, $month, $day, $year);
+    // }
 
     public static function convertTimestampToDate($timestamp) {
         $date = new \DateTime();

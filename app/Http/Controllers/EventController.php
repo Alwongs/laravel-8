@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\URL;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Event;
@@ -15,9 +16,11 @@ class EventController extends Controller
         return view('pages/admin/events/manage', compact('events'));
     }
 
-    public function create()
+    public function create(Request $request)
     {
-        return view('pages/admin/events/update');
+        $return_url = $request->return_url;
+
+        return view('pages/admin/events/update', compact('return_url'));
     }
 
     public function store(Request $request)
@@ -28,7 +31,7 @@ class EventController extends Controller
         unset($data['date']);
         Event::create($data);
         
-        return redirect()->route('events.index');
+        return redirect()->route($request->return_url);
     }
 
     public function show($id)

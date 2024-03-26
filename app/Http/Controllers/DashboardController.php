@@ -12,7 +12,7 @@ class DashboardController extends Controller
 
         $events = Event::all();
 
-        list($overdue, $today, $tomorrow, $in_week) = EventHelper::chunck_events_to_periods($events); 
+        list($overdue, $today, $tomorrow, $in_week) = EventHelper::chunckEventsToPeriods($events); 
 
         return view('dashboard', compact('events', 'overdue', 'today', 'tomorrow', 'in_week'));
     }

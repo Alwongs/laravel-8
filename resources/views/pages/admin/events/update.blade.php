@@ -11,6 +11,8 @@
     @endif
         @csrf
 
+        <input type="hidden" name="return_url" value="{{ $return_url }}">
+
         <div class="form__input-block">
             <input name="form_data[event]" type="text" placeholder="title" value="{{ isset($event) ? $event->event : '' }}" required />
         </div>    

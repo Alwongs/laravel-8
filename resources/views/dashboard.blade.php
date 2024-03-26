@@ -5,7 +5,7 @@
 
     <main class="main container dashboard">
         <div class="add-btn-group">
-            <a class="add-btn btn-icon-add" title="add new event" href="/events/create?return_url=/dashboard"></a>
+            <a class="add-btn btn-icon-add" title="add new event" href="{{ route('events.create') }}?return_url=dashboard"></a>
         </div>    
 
         <div class="dashboard-row">  
