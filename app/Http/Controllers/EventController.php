@@ -27,7 +27,7 @@ class EventController extends Controller
     {
         $isValidDate = DateHelper::validateDate($request->form_data['date']);
         if (!$isValidDate) {
-            return redirect()->back()->with('info', 'Not valid date!'); 
+            return redirect()->back()->with('status', 'Not valid date!'); 
         }
 
         $data = $request->form_data;
@@ -46,7 +46,8 @@ class EventController extends Controller
 
     public function edit(Event $event)
     {
-        return view('pages/admin/events/update', compact('event'));        
+        $return_url = 'events.edit';
+        return view('pages/admin/events/update', compact('event', 'return_url'));        
     }
 
     public function update(Request $request, Event $event)

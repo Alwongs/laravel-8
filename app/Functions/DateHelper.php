@@ -47,8 +47,8 @@ class DateHelper
         if (
             $date['day'] >= 1 
             && (
-                (in_array($date['month'], MONTHS_WITH_31_DAYS) && $date['day'] <= 31)
-                || (in_array($date['month'], MONTHS_WITH_30_DAYS) && $date['day'] <= 30)
+                (in_array($date['month'], self::MONTHS_WITH_31_DAYS) && $date['day'] <= 31)
+                || (in_array($date['month'], self::MONTHS_WITH_30_DAYS) && $date['day'] <= 30)
             )
         ) {
             return true;
