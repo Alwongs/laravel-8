@@ -9,5 +9,6 @@
         <a href="{{ route('home') }}">Site</a>
         <a href="{{ route('dashboard') }}">Dashboard</a>
         <a href="{{ route('events.index') }}">Events</a>
+        <a href="{{ route('posts.index') }}">Posts</a>
     </nav>
 </aside>
