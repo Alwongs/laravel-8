@@ -1,4 +1,4 @@
-<div class="dashboard-card {{ $class  }}">
+<div class="dashboard-card dashboard-item">
     <h2 class="dashboard-card__title">{{ $title }}</h2>
     @isset($events)
         <ul class="dashboard-card__content-list">

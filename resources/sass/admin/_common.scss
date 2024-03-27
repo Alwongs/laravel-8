@@ -5,8 +5,8 @@
     font-family: 'Open Sans';
     color: rgb(41, 67, 90);
 }
-body {
-    height: 100%;
+html, body {
+    background-color: rgb(166, 199, 207);
 }
 ul {
     list-style: none;
@@ -15,8 +15,6 @@ a {
     text-decoration: none;
 }
 
-
-
 .website {
     display: flex;
     height: 100vh;
@@ -24,6 +22,7 @@ a {
         flex: 0 0 300px;
     }
     &__page {
+        background-color: #fff;
         flex: 1 1 auto;
     }
 }
@@ -41,12 +40,19 @@ a {
     border: 1px solid rgb(202, 133, 133);
     background-color: rgb(230, 211, 211);
     border-radius: 3px;
-    // max-width: 900px;
     min-width: 320px;
     min-height: 35px;
     margin: 0 auto;
     text-align: center;
     padding: 10px;
+}
+
+.header {
+    padding: 10px 0;
+    h1 {
+        width: fit-content;
+        margin: 0 auto;
+    }
 }
 
 .migration-report-list {
