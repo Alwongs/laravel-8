@@ -1,7 +1,17 @@
 .aside {
-
     background-color: rgb(166, 199, 207);
     padding-top: 100px;
+    @media (min-width: $desktop-min) and (max-width: $desktop-max) {
+        
+    }     
+    @media (min-width: $tablet-min) and (max-width: $tablet-max) {  
+        
+    }           
+    @media (max-width: $mobile-max) {  
+        position: absolute;
+        top: 0;
+        left: -300px;
+    }  
 }
 
 .aside-navigation {
