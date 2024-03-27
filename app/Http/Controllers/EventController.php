@@ -12,20 +12,20 @@ class EventController extends Controller
 {
     public function index()
     {
-        $events = Event::all();
+        $events = Event::where('user_id', Auth::id())->orderBy('timestamp', 'ASC')->get();
         return view('pages/admin/events/manage', compact('events'));
     }
 
     public function create(Request $request)
     {
         $return_url = $request->return_url;
-
         return view('pages/admin/events/update', compact('return_url'));
     }
 
     public function store(Request $request)
     {
         $isValidDate = DateHelper::validateDate($request->form_data['date']);
+
         if (!$isValidDate) {
             return redirect()->back()->with('status', 'Not valid date!'); 
         }
@@ -34,8 +34,9 @@ class EventController extends Controller
         $data['user_id'] = Auth::user()->id;
         $data['timestamp'] = (new DateHelper())->dateToTimestamp($request->form_data['date']);
         unset($data['date']);
-        Event::create($data);
         
+        Event::create($data);
+
         return redirect()->route($request->return_url);
     }
 

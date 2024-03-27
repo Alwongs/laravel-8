@@ -5,20 +5,20 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Event;
 use App\Functions\EventHelper;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
-    public function index() {
-
-        $events = Event::all();
-
+    public function index()
+    {
+        $events = Event::where('user_id', Auth::id())->get();
         list($overdue, $today, $tomorrow, $in_week) = EventHelper::chunckEventsToPeriods($events); 
 
         return view('dashboard', compact('events', 'overdue', 'today', 'tomorrow', 'in_week'));
     }
 
-    public function postpone($id) {
-
+    public function postpone($id)
+    {
         $event = Event::find($id);
 
         if ($event->type == 'M') {
