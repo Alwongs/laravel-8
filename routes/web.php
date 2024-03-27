@@ -16,7 +16,7 @@ use App\Http\Controllers\EventController;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 
 

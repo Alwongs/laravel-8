@@ -1,7 +1,7 @@
 <x-admin-layout>
     <main class="main container dashboard">
 
-        <section class="revinder">
+        <section class="reminder-section">
             <div class="add-btn-group">
                 <a class="add-btn btn-icon-add" title="add new event" href="{{ route('events.create') }}?return_url=dashboard"></a>
             </div>    
@@ -15,7 +15,7 @@
             <div class="dashboard-row-second">
                 <x-dashboard-card :events="$in_week" :title="'in week'" :class="'in-week'"/>
             </div>
-        </seciton>
+        </section>
 
 
 

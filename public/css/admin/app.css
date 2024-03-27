@@ -11,6 +11,7 @@
 
 html, body {
   background-color: rgb(166, 199, 207);
+  min-height: 100%;
 }
 
 ul {
@@ -23,7 +24,7 @@ a {
 
 .website {
   display: flex;
-  height: 100vh;
+  min-height: 100%;
 }
 .website__aside {
   flex: 0 0 300px;
@@ -31,6 +32,7 @@ a {
 .website__page {
   background-color: #fff;
   flex: 1 1 auto;
+  height: 100%;
 }
 
 .page-title {
@@ -88,6 +90,22 @@ a {
 .main {
   padding: 0 30px;
 }
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .main {
+    padding: 0 20px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .main {
+    padding: 0 15px;
+  }
+}
+@media (max-width: 767px) {
+  .main {
+    padding: 0 10px;
+  }
+}
+
 .container-flex {
   display: flex;
   justify-content: space-between;
@@ -119,6 +137,9 @@ a {
 .top-panel a {
   color: white;
 }
+.top-panel__home-link {
+  text-transform: capitalize;
+}
 @media (max-width: 767px) {
   .top-panel__home-link {
     display: none;
@@ -130,26 +151,70 @@ a {
 @media (max-width: 767px) {
   .top-panel__menu-link {
     display: block;
+    cursor: pointer;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .top-panel {
+    padding: 0 20px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .top-panel {
+    padding: 0 15px;
+  }
+}
+@media (max-width: 767px) {
+  .top-panel {
+    padding: 0 10px;
   }
 }
 
 .aside {
   background-color: rgb(166, 199, 207);
-  padding-top: 100px;
+  transition: 0.4s ease-in-out;
+  height: 100%;
+  width: 100%;
 }
 @media (max-width: 767px) {
   .aside {
     position: absolute;
     top: 0;
-    left: -300px;
+    left: -100%;
+  }
+  .aside._active {
+    left: 0;
+  }
+}
+
+.aside__btn-block {
+  margin-bottom: 100px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.aside__btn-close-menu {
+  background-color: transparent;
+  height: 50px;
+  padding: 0 20px;
+  border: none;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  display: none;
+}
+@media (max-width: 767px) {
+  .aside__btn-close-menu {
+    display: block;
   }
 }
 
 .aside-navigation a {
   display: block;
   padding: 15px 0 10px 20px;
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid rgb(100, 146, 160);
   transition: 0.2s;
+  font-size: 22px;
 }
 .aside-navigation a:hover {
   background-color: rgb(184, 220, 230);
@@ -253,8 +318,12 @@ a {
 }
 
 .dashboard {
-  background-color: #caadce;
+  background-color: #bbb2d8;
   padding-top: 30px;
+}
+
+.reminder-section {
+  margin-bottom: 30px;
 }
 
 .dashboard-row {
@@ -265,6 +334,12 @@ a {
 }
 @media (max-width: 1439px) {
   .dashboard-row {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+}
+@media (max-width: 1023px) {
+  .dashboard-row {
     flex-direction: column;
   }
 }
@@ -272,14 +347,14 @@ a {
 .dashboard-item {
   flex: 1 0 340px;
 }
-@media (min-width: 1024px) and (max-width: 1439px) {
+@media (max-width: 1439px) {
   .dashboard-item {
-    flex: 1 0 220px;
+    flex: 0 0 48%;
   }
 }
 @media (min-width: 768px) and (max-width: 1023px) {
   .dashboard-item {
-    flex: 1 0 230px;
+    flex: 1 1 auto;
   }
 }
 @media (max-width: 767px) {
@@ -298,18 +373,29 @@ a {
 }
 @media (max-width: 1439px) {
   .dashboard-row-second .dashboard-item {
-    flex: 0 0 auto;
+    flex: 0 0 48%;
+  }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .dashboard-row-second .dashboard-item {
+    flex: 1 1 auto;
+  }
+}
+@media (max-width: 767px) {
+  .dashboard-row-second .dashboard-item {
+    flex: 1 1 auto;
   }
 }
 
 .dashboard-card {
-  background-color: #ffdc7a;
+  background-color: #f7e6b7;
   box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.2);
   min-height: 200px;
   display: flex;
   flex-direction: column;
 }
 .dashboard-card__title {
+  text-transform: capitalize;
   text-align: center;
   padding: 10px 0;
 }

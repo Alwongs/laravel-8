@@ -1,6 +1,6 @@
 <div class="dashboard-card dashboard-item">
     <h2 class="dashboard-card__title">{{ $title }}</h2>
-    @isset($events)
+    @if($events)
         <ul class="dashboard-card__content-list">
             @foreach($events as $event)
                 <li class="dashboard-card__item dashboard-card-item">
@@ -26,5 +26,5 @@
         </ul>
     @else
         <p class="dashboard-card__content-empty">-- cписок пуст --</p>
-    @endisset
+    @endif
 </div>

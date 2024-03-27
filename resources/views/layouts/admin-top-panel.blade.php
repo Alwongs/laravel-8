@@ -1,5 +1,5 @@
 <header class="top-panel">
-    <a class="top-panel__home-link" href="/">Главная</a>  
+    <a class="top-panel__home-link" href="/">{{ __("home") }}</a>  
     <a id="top-panel-menu-link" class="top-panel__menu-link">Menu</a>
     
     <form class="top-panel__auth" method="POST" action="{{ route('logout') }}">

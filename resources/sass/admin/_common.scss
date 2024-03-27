@@ -7,6 +7,7 @@
 }
 html, body {
     background-color: rgb(166, 199, 207);
+    min-height: 100%;
 }
 ul {
     list-style: none;
@@ -17,13 +18,14 @@ a {
 
 .website {
     display: flex;
-    height: 100vh;
+    min-height: 100%;
     &__aside {
         flex: 0 0 300px;
     }
     &__page {
         background-color: #fff;
         flex: 1 1 auto;
+        height: 100%;
     }
 }
 
@@ -80,13 +82,13 @@ a {
 .main {
     padding: 0 30px;
     @media (min-width: $desktop-min) and (max-width: $desktop-max) {
-       
+        padding: 0 20px;       
     }     
     @media (min-width: $tablet-min) and (max-width: $tablet-max) {  
-        
+        padding: 0 15px;
     }           
     @media (max-width: $mobile-max) {  
-              
+        padding: 0 10px;      
     }      
 }
 
