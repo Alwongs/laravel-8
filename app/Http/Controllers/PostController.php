@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\Post\StoreRequest;
 
 class PostController extends Controller
 {
@@ -30,25 +31,25 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
+        if ($request->validated()) {
 
-        $validatedData = $request->validate([
-            'form_data.post' => ['required', 'max:255'],
-            'form_data.description' => ['nullable'],
-        ]);
+            $post = $request->form_data;
 
-        dd($validatedData);
-        $data['user_id'] = Auth::user()->id;
-        
-        // if (!empty($data['image'])) {
-        //     $data['image'] = Storage::disk('public')->put('images', $data['image']);
-        // }
+            if (!empty($data['image'])) {
+                $post['image'] = Storage::disk('public')->put('images', $request->image);
+            }
 
-        Post::create($data);
+            $post['user_id'] = Auth::user()->id;
+
+            Post::create($post);
+            
+            return redirect()->route('posts.index');
+        }
 
 
-        return redirect()->route('posts.index');
+
     }
 
     /**

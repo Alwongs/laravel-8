@@ -7,13 +7,12 @@
 
         <div class="add-btn-group">
             <a class="add-btn btn-icon-add" title="add new post" href="{{ route('posts.create') }}?return_url=posts.index"></a>
-            <!-- <a class="add-btn btn-icon-delete" title="add new post" href="#"></a> -->
         </div> 
 
         <ul class="manage-list">
             @foreach($posts as $post)
             <li class="manage-list__item">
-                <div class="cell__date">{{ date('d.m.Y', $post->created_at); }}</div>
+                <div class="cell__date">{{ date("d.m.Y", strtotime($post->created_at)) }}</div>
 
                 <div class="cell__title">{{ $post->post }}</div> 
 

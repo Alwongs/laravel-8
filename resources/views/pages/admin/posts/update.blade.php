@@ -5,8 +5,6 @@
 
     <main class="main ">
 
-
-
         @if(isset($post))
             <form class="form" action="{{ route('posts.update', $post) }}" method="POST">
                 @method('PUT')
@@ -20,12 +18,20 @@
             <input type="hidden" name="return_url" value="{{ $return_url }}">
 
             <div class="form__input-block">
-                <input name="form_data[post]" type="text" placeholder="title" value="{{ isset($post) ? $post->post : '' }}" required />
+                <input name="form_data[post]" type="text" placeholder="post" value="{{ isset($post) ? $post->post : '' }}" required />
             </div>    
 
             <div class="form__textarea-block">
                 <textarea name="form_data[description]" placeholder="description">{{ isset($post) ? $event->description : '' }}</textarea>
             </div>
+
+
+            <div class="form__file-block">
+                <input id="input_file" name="image" type="file" />
+                <p id="error" style="color: red;"></p>
+            </div>  
+
+
 
             <div class="form__btn-block">
                 <button class="btn">Back</button>
