@@ -13,25 +13,25 @@
         <ul class="manage-list">
             @foreach($posts as $post)
             <li class="manage-list__item">
-                <div class="cell__date">{{ date('d.m.Y', $event->created_at); }}</div>
+                <div class="cell__date">{{ date('d.m.Y', $post->created_at); }}</div>
 
-                <div class="cell__title">{{ $event->event }}</div> 
+                <div class="cell__title">{{ $post->post }}</div> 
 
                 <div class="cell__type">
-                    @if ($event->type == "U")
+                    @if ($post->type == "U")
                         unique
-                    @elseif ($event->type == "M")
+                    @elseif ($post->type == "M")
                         monthly
-                    @elseif ($event->type == "A")
+                    @elseif ($post->type == "A")
                         annual
                     @endif
                 </div>
 
-                <a href="{{ route('events.edit', $event->id) }}" class="cell-btn btn-icon-edit"></a>
-                <form action="{{ route('events.destroy', $event->id) }}" method="POST">
+                <a href="{{ route('posts.edit', $post->id) }}" class="cell-btn btn-icon-edit"></a>
+                <form action="{{ route('posts.destroy', $post->id) }}" method="POST">
                     @csrf
                     @method('DELETE')
-                    <button href="{{ route('events.destroy', $event->id) }}" class="cell-btn btn-icon-delete"></button> 
+                    <button href="{{ route('posts.destroy', $post->id) }}" class="cell-btn btn-icon-delete"></button> 
                 </form>     
             </li>        
             @endforeach
