@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Requests\Post\StoreRequest as PostStoreRequest;
+use App\Http\Requests\Post\StoreRequest;
 use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
@@ -16,7 +16,6 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::where('user_id', Auth::id())->orderBy('created_at', 'desc')->get();
-
         return view('pages/admin/posts/manage', compact('posts'));
     }
 
@@ -32,14 +31,14 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(PostStoreRequest $request)
+    public function store(StoreRequest $request)
     {
         $data = $request->validated();
         $data['user_id'] = Auth::user()->id;
         
-        if (!empty($data['image'])) {
-            $data['image'] = Storage::disk('public')->put('images', $data['image']);
-        }
+        // if (!empty($data['image'])) {
+        //     $data['image'] = Storage::disk('public')->put('images', $data['image']);
+        // }
 
         Post::create($data);
 
