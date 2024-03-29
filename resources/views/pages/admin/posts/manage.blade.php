@@ -12,6 +12,10 @@
         <ul class="manage-list">
             @foreach($posts as $post)
             <li class="manage-list__item">
+                <div class="manage-list__item-image">
+                    <img height="44" src="{{ Storage::url($post->image) ?: '' }}" alt="{{ $post->image }}" />
+                </div>  
+
                 <div class="cell__date">{{ date("d.m.Y", strtotime($post->created_at)) }}</div>
 
                 <div class="cell__title">{{ $post->post }}</div> 
