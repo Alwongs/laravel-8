@@ -13,22 +13,12 @@
             @foreach($posts as $post)
             <li class="manage-list__item">
                 <div class="manage-list__item-image">
-                    <img height="44" src="{{ Storage::url($post->image) ?: '' }}" alt="{{ $post->image }}" />
+                    <img src="{{ Storage::url($post->image) ?: '' }}" alt="{{ $post->image }}" />
                 </div>  
 
-                <div class="cell__date">{{ date("d.m.Y", strtotime($post->created_at)) }}</div>
+                <div class="manage-list__item-title">{{ $post->post }}</div> 
 
-                <div class="cell__title">{{ $post->post }}</div> 
-
-                <div class="cell__type">
-                    @if ($post->type == "U")
-                        unique
-                    @elseif ($post->type == "M")
-                        monthly
-                    @elseif ($post->type == "A")
-                        annual
-                    @endif
-                </div>
+                <div class="manage-list__item-date">{{ date("d.m.Y", strtotime($post->created_at)) }}</div>
 
                 <a href="{{ route('posts.edit', $post->id) }}" class="cell-btn btn-icon-edit"></a>
                 <form action="{{ route('posts.destroy', $post->id) }}" method="POST">

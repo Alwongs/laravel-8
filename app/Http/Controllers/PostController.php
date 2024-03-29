@@ -40,8 +40,8 @@ class PostController extends Controller
 
             if ($request->hasFile('image')) {
                 $image = $request->file('image');
-                $newImageName = date('d_m_Y__h_i_s', time()) . '_' . rand(1000, 9999) . '_image.' . $image->getClientOriginalExtension();
-                $path = $image->storeAs('posts', $newImageName);
+                $newImageName = date('d-m-Y_h-i-s', time()) . '_' . rand(1000, 9999) . '_image.' . $image->getClientOriginalExtension();
+                $path = $image->storeAs('posts/' . Auth::user()->id, $newImageName);
                 $post['image'] = $path;
             }
 
@@ -62,17 +62,35 @@ class PostController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Post $post)
     {
-        //
+        $return_url = 'posts.edit';
+        return view('pages/admin/posts/update', compact('post', 'return_url')); 
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Post $post)
     {
-        //
+        if ($request->hasFile('image')) {
+
+            if($post->image) {
+                Storage::delete($post->image);
+            }
+
+            $image = $request->file('image');
+            $newImageName = date('d-m-Y_h-i-s', time()) . '_' . rand(1000, 9999) . '_image.' . $image->getClientOriginalExtension();
+            $path = $image->storeAs('posts/' . $post->user_id, $newImageName);
+            $post->image = $path;
+        }
+
+        $post->post = $request->post;
+        $post->description = $request->description;
+
+        $post->update();
+
+        return redirect()->route('posts.edit', compact('post'));
     }
 
     /**
@@ -80,30 +98,18 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        if (Auth::user()->id === $post->user->id) {
+        if (Auth::user()->id == $post->user_id) {
 
             if($post->image) {
                 Storage::delete($post->image);
             }
 
             $post->delete();
+
             return redirect()->back()->with('info', 'Запись успешно удалена'); 
-
-
-
-
-
-
-
-
-
-
-
-
 
         } else {
             return redirect()->back()->with('info', 'Это не ваш пост! Не вам и удалять!');              
         }
-
     }
-};
+}

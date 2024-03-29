@@ -238,15 +238,18 @@ a {
   margin-bottom: 20px;
 }
 
-.manage-list .cell__id {
-  flex: 0 0 40px;
+.manage-list__item-image {
+  background-color: rgba(45, 67, 85, 0.5);
+  border: 1px solid rgb(45, 67, 85);
+  height: 39px;
+  width: 60px;
+  margin-right: 20px;
+  text-align: center;
 }
-@media (max-width: 767px) {
-  .manage-list .cell__id {
-    display: none;
-  }
+.manage-list__item-image img {
+  height: 100%;
 }
-.manage-list .cell__title {
+.manage-list__item-title {
   flex: 1 0 300px;
   white-space: nowrap;
   overflow: hidden;
@@ -256,58 +259,58 @@ a {
   max-width: 100%;
   text-transform: capitalize;
 }
-.manage-list .cell__title a {
+.manage-list__item-title a {
   color: #0073a4;
 }
 @media (min-width: 1024px) and (max-width: 1439px) {
-  .manage-list .cell__title {
+  .manage-list__item-title {
     width: 60ch;
     max-width: 100%;
   }
 }
 @media (min-width: 768px) and (max-width: 1023px) {
-  .manage-list .cell__title {
+  .manage-list__item-title {
     width: 60ch;
     max-width: 100%;
   }
 }
 @media (max-width: 767px) {
-  .manage-list .cell__title {
+  .manage-list__item-title {
     font-size: 20px;
     width: 20ch;
     max-width: 100%;
     flex: 1 0 200px;
   }
 }
-.manage-list .cell__date {
+.manage-list__item-date {
   flex: 0 0 120px;
 }
 @media (max-width: 1023px) {
-  .manage-list .cell__date {
+  .manage-list__item-date {
     flex: 0 0 100px;
   }
 }
 @media (max-width: 767px) {
-  .manage-list .cell__date {
+  .manage-list__item-date {
     display: none;
   }
 }
-.manage-list .cell__type {
+.manage-list__type {
   flex: 0 0 80px;
 }
 @media (max-width: 1439px) {
-  .manage-list .cell__type {
+  .manage-list__type {
     display: none;
   }
 }
-.manage-list .cell__btn-block {
+.manage-list__btn-block {
   display: flex;
   justify-content: center;
   flex: 0 0 76px;
   gap: 5px;
 }
 @media (max-width: 767px) {
-  .manage-list .cell__btn-block {
+  .manage-list__btn-block {
     flex: 0 0 36px;
   }
 }
@@ -396,9 +399,11 @@ a {
   flex-direction: column;
 }
 .dashboard-card__title {
-  text-transform: capitalize;
   text-align: center;
   padding: 10px 0;
+}
+.dashboard-card__title:first-letter {
+  text-transform: capitalize;
 }
 .dashboard-card__content-list {
   border-radius: 10px;
@@ -463,6 +468,8 @@ a {
   overflow: hidden;
   text-overflow: ellipsis;
   width: 21ch;
+}
+.dashboard-card-item__title:first-letter {
   text-transform: capitalize;
 }
 @media (min-width: 1024px) and (max-width: 1439px) {

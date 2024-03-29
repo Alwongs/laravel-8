@@ -57,7 +57,9 @@
     display: flex;
     flex-direction: column;
     &__title {
-        text-transform: capitalize;
+        &:first-letter {
+            text-transform: capitalize;
+        }
         text-align: center;
         padding: 10px 0;
     }
@@ -125,7 +127,9 @@
         overflow: hidden;
         text-overflow: ellipsis; 
         width: 21ch;    
-        text-transform: capitalize;
+        &:first-letter {
+            text-transform: capitalize;
+        }
         @media (min-width: $desktop-min) and (max-width: $desktop-max) {    
             max-width: 100%;                                      
         }     

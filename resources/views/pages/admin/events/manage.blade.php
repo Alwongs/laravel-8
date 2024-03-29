@@ -12,11 +12,11 @@
         <ul class="manage-list">
             @foreach($events as $event)
             <li class="manage-list__item">
-                <div class="cell__date">{{ date('d.m.Y', $event->timestamp); }}</div>
+                <div class="manage-list__item-date">{{ date('d.m.Y', $event->timestamp); }}</div>
 
-                <div class="cell__title">{{ $event->event }}</div> 
+                <div class="manage-list__item-title">{{ $event->event }}</div> 
 
-                <div class="cell__type">
+                <div class="manage-list__item-type">
                     @if ($event->type == "U")
                         unique
                     @elseif ($event->type == "M")

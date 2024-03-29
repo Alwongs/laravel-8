@@ -1,6 +1,6 @@
 <x-admin-layout>
     <header class="header">
-        <h1>@isset($event){{ __('Update') }}@else{{ __('posts.new_post') }}@endisset</h1>
+        <h1>@isset($post){{ __('Update') }}@else{{ __('posts.new_post') }}@endisset</h1>
     </header>
 
     <main class="main ">
@@ -22,9 +22,14 @@
             </div>    
 
             <div class="form__textarea-block">
-                <textarea name="description" placeholder="description">{{ isset($post) ? $event->description : '' }}</textarea>
+                <textarea name="description" placeholder="description">{{ isset($post) ? $post->description : '' }}</textarea>
             </div>
 
+            @isset($post)
+            <div class="form__image-block">
+                <img src="{{ Storage::url($post->image) ?: '' }}" alt="{{ $post->image }}" />
+            </div>
+            @endisset
 
             <div class="form__file-block">
                 <input id="input_file" name="image" type="file" />

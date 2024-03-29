@@ -15,15 +15,20 @@
     }
 }
 
-.manage-list .cell {
+.manage-list {
+    &__item-image {
+        background-color: rgba(45, 67, 85, 0.5);
+        border: 1px solid rgb(45, 67, 85);
+        height: 39px;
+        width: 60px;
+        margin-right: 20px;
+        text-align: center;
+        img {
+            height: 100%;
+        }
 
-    &__id {
-        flex: 0 0 40px;
-        @media (max-width: $mobile-max) {  
-            display: none;                
-        }         
     }
-    &__title {
+    &__item-title {
         flex: 1 0 300px;
         white-space: nowrap;
         overflow: hidden;
@@ -51,7 +56,7 @@
             flex: 1 0 200px;               
         }            
     }
-    &__date {
+    &__item-date {
         flex: 0 0 120px;
         @media (max-width: $tablet-max) {  
             flex: 0 0 100px;        
