@@ -6,10 +6,10 @@
     <main class="main ">
 
         @if(isset($post))
-            <form class="form" action="{{ route('posts.update', $post) }}" method="POST">
+            <form class="form" action="{{ route('posts.update', $post) }}" method="POST" enctype="multipart/form-data">
                 @method('PUT')
         @else
-            <form class="form" action="{{ route('posts.store') }}" method="POST">
+            <form class="form" action="{{ route('posts.store') }}" method="POST" enctype="multipart/form-data">
         @endif
             @csrf
 
@@ -18,11 +18,11 @@
             <input type="hidden" name="return_url" value="{{ $return_url }}">
 
             <div class="form__input-block">
-                <input name="form_data[post]" type="text" placeholder="post" value="{{ isset($post) ? $post->post : '' }}" required />
+                <input name="post" type="text" placeholder="post" value="{{ isset($post) ? $post->post : '' }}" required />
             </div>    
 
             <div class="form__textarea-block">
-                <textarea name="form_data[description]" placeholder="description">{{ isset($post) ? $event->description : '' }}</textarea>
+                <textarea name="description" placeholder="description">{{ isset($post) ? $event->description : '' }}</textarea>
             </div>
 
 

@@ -35,21 +35,20 @@ class PostController extends Controller
     {
         if ($request->validated()) {
 
-            $post = $request->form_data;
-
-            if (!empty($data['image'])) {
-                $post['image'] = Storage::disk('public')->put('images', $request->image);
-            }
-
+            $post = $request->all();
             $post['user_id'] = Auth::user()->id;
+
+            if ($request->hasFile('image')) {
+                $image = $request->file('image');
+                $newImageName = date('d_m_Y__h_i_s', time()) . '_' . rand(1000, 9999) . '_image.' . $image->getClientOriginalExtension();
+                $path = $image->storeAs('posts', $newImageName);
+                $post['image'] = $path;
+            }
 
             Post::create($post);
             
             return redirect()->route('posts.index');
         }
-
-
-
     }
 
     /**
