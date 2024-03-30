@@ -5,15 +5,17 @@
 
     <main class="main ">
 
-        <x-session-status :status="session('status')" :info="session('info')" />
+        <div class="notification-block">
+            <x-session-status :status="session('status')" :info="session('info')" />
 
-        @if ($errors->any())
-        <ul class="notification request-validation">
-            @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-        @endif
+            @if ($errors->any())
+            <ul class="notification request-validation">
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+            @endif
+        </div>
 
 
         @if(isset($event))

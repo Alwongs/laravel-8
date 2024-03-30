@@ -29,4 +29,12 @@ class StoreRequest extends FormRequest
             'image'       => ['nullable', 'image:jpg,jpeg,png,webp']
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'post.required' => 'Request validation: A title is required',
+            'image.image' => 'Request validation: An extension is not permited',
+        ];
+    }       
 }

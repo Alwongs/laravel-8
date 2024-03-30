@@ -35,7 +35,6 @@ class StoreRequest extends FormRequest
     {
         return [
             'event.required' => 'Request validation: A title is required',
-            'event.description' => 'Request validation: A description is required',
         ];
     }
 }

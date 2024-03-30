@@ -1,7 +1,9 @@
 <x-admin-layout>
     <main class="main container dashboard">
 
-        <x-session-status :status="session('status')" :info="session('info')" />
+        <div class="notification-block">
+            <x-session-status :status="session('status')" :info="session('info')" />
+        </div>             
 
         <section class="reminder-section">
             <div class="add-btn-group">

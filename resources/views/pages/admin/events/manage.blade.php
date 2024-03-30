@@ -5,6 +5,10 @@
 
     <main class="main">
 
+        <div class="notification-block">
+            <x-session-status :status="session('status')" :info="session('info')" />
+        </div>    
+
         <div class="add-btn-group">
             <a class="add-btn btn-icon-add" title="add new post" href="{{ route('events.create') }}?return_url=events.index"></a>
         </div> 

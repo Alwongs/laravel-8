@@ -47,7 +47,7 @@ class PostController extends Controller
 
             Post::create($post);
             
-            return redirect()->route('posts.index');
+            return redirect()->route('posts.index')->with('info', 'Post has been added!'); 
         }
     }
 
@@ -90,7 +90,7 @@ class PostController extends Controller
 
         $post->update();
 
-        return redirect()->route('posts.edit', compact('post'));
+        return redirect()->route('posts.edit', compact('post'))->with('info', 'Post has been updated!'); 
     }
 
     /**
