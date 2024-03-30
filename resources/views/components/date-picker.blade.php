@@ -2,7 +2,7 @@
    $months = [1 => 'january', 2 => 'fabruary', 3 => 'march', 4 => 'april', 5 => 'may', 6 => 'june', 7 => 'july', 8 => 'august', 9 => 'september', 10 => 'october', 11 => 'november', 12 => 'december'];
 @endphp
 
-<select name="form_data[date][day]" type="text">
+<select name="date[day]" type="text">
     @for ($i = 1; $i < 32; $i++)
         @isset($event)
             @if (date('d', $event->timestamp) == $i)
@@ -20,7 +20,7 @@
     @endfor
 </select>
 
-<select name="form_data[date][month]" type="text">
+<select name="date[month]" type="text">
     @foreach($months as $key => $value)
         @isset($event)
             @if (date('m', $event->timestamp) == $key)
@@ -38,7 +38,7 @@
     @endforeach
 </select>   
 
-<select name="form_data[date][year]" type="text">
+<select name="date[year]" type="text">
     @for ($i = 2024; $i < 2034; $i++)
         @isset($event)
             @if (date('Y', $event->timestamp) == $i)

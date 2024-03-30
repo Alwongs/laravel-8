@@ -3,7 +3,7 @@
         <h1>@isset($post){{ __('Update') }}@else{{ __('posts.new_post') }}@endisset</h1>
     </header>
 
-    <main class="main ">
+    <main class="main">
 
         @if(isset($post))
             <form class="form" action="{{ route('posts.update', $post) }}" method="POST" enctype="multipart/form-data">
@@ -39,7 +39,6 @@
 
 
             <div class="form__btn-block">
-                <button class="btn">Back</button>
                 <button type="submit" class="btn btn-green">
                     @if(isset($post))
                         Update

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Event;
 use App\Functions\DateHelper;
+use App\Http\Requests\Event\StoreRequest;
 
 class EventController extends Controller
 {
@@ -21,22 +22,23 @@ class EventController extends Controller
         return view('pages/admin/events/update', compact('return_url'));
     }
 
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
-        $isValidDate = DateHelper::validateDate($request->form_data['date']);
+        if ($request->validated()) {
 
-        if (!$isValidDate) {
-            return redirect()->back()->with('status', 'Not valid date!'); 
+            if (!DateHelper::validateDate($request->date)) {
+                return redirect()->back()->with('status', 'Not valid date!'); 
+            }
+    
+            $event = $request->all();;
+            $event['user_id'] = Auth::user()->id;
+            $event['timestamp'] = (new DateHelper())->dateToTimestamp($request->date);
+            unset($event['date']);
+            
+            Event::create($event);
+    
+            return redirect()->route($request->return_url);
         }
-
-        $data = $request->form_data;
-        $data['user_id'] = Auth::user()->id;
-        $data['timestamp'] = (new DateHelper())->dateToTimestamp($request->form_data['date']);
-        unset($data['date']);
-        
-        Event::create($data);
-
-        return redirect()->route($request->return_url);
     }
 
     public function show($id)
@@ -52,10 +54,10 @@ class EventController extends Controller
 
     public function update(Request $request, Event $event)
     {
-        $event->event = $request->form_data['event'];
-        $event->description = $request->form_data['description'];
-        $event->timestamp = (new DateHelper())->dateToTimestamp($request->form_data['date']);
-        $event->type = $request->form_data['type'];
+        $event->event = $request->event;
+        $event->description = $request->description;
+        $event->timestamp = (new DateHelper())->dateToTimestamp($request->date);
+        $event->type = $request->type;
         unset($event->date);
         $event->update();
 

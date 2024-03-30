@@ -24,7 +24,7 @@ a {
 
 .website {
   display: flex;
-  min-height: 100%;
+  min-height: 200%;
 }
 .website__aside {
   flex: 0 0 300px;
@@ -690,7 +690,7 @@ a {
 }
 
 .form {
-  width: 400px;
+  width: 800px;
   margin: 0 auto;
   font-size: 18px;
   margin-bottom: 20px;
@@ -735,7 +735,7 @@ a {
 }
 
 .form__textarea-block {
-  height: 100px;
+  height: 200px;
   margin-bottom: 16px;
 }
 .form__textarea-block textarea {
@@ -792,6 +792,7 @@ a {
 }
 
 select {
+  background-color: #fff;
   border: none;
   border-bottom: 1px solid rgba(0, 83, 118, 0.4);
   color: rgb(0, 83, 118);
@@ -806,6 +807,7 @@ select {
 }
 .input-type-block select {
   width: 100%;
+  background-color: #fff;
 }
 
 .form__btn-block {
