@@ -5,22 +5,30 @@
 
     <main class="main ">
 
+        <x-session-status :status="session('status')" :info="session('info')" />
+
+        @if ($errors->any())
+        <ul class="notification request-validation">
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+        @endif
 
 
         @if(isset($event))
-            <form class="form" action="{{ route('events.update', $event) }}" method="POST">
-                @method('PUT')
+        <form class="form" action="{{ route('events.update', $event) }}" method="POST">
+            @method('PUT')
         @else
-            <form class="form" action="{{ route('events.store') }}" method="POST">
+        <form class="form" action="{{ route('events.store') }}" method="POST">
         @endif
-            @csrf
 
-            <x-auth-session-status class="notification" :status="session('status')" />
+            @csrf
 
             <input type="hidden" name="return_url" value="{{ $return_url }}">
 
             <div class="form__input-block">
-                <input name="event" type="text" placeholder="title" value="{{ isset($event) ? $event->event : '' }}" required />
+                <input name="event" type="text" placeholder="title" value="{{ isset($event) ? $event->event : '' }}" />
             </div>    
 
             <div class="form__textarea-block">

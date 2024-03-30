@@ -30,4 +30,12 @@ class StoreRequest extends FormRequest
             'type'        => ['required', 'max:2'],
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'event.required' => 'Request validation: A title is required',
+            'event.description' => 'Request validation: A description is required',
+        ];
+    }
 }

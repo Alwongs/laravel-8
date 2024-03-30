@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Event;
 use App\Functions\DateHelper;
 use App\Http\Requests\Event\StoreRequest;
+use App\Http\Requests\Event\UpdateRequest;
 
 class EventController extends Controller
 {
@@ -37,7 +38,7 @@ class EventController extends Controller
             
             Event::create($event);
     
-            return redirect()->route($request->return_url);
+            return redirect()->route($request->return_url)->with('info', 'Success!'); 
         }
     }
 
@@ -52,21 +53,24 @@ class EventController extends Controller
         return view('pages/admin/events/update', compact('event', 'return_url'));        
     }
 
-    public function update(Request $request, Event $event)
+    public function update(UpdateRequest $request, Event $event)
     {
-        $event->event = $request->event;
-        $event->description = $request->description;
-        $event->timestamp = (new DateHelper())->dateToTimestamp($request->date);
-        $event->type = $request->type;
-        unset($event->date);
-        $event->update();
+        if ($request->validated()) {
 
-        return redirect()->route('events.edit', compact('event'));
+            $event->event = $request->event;
+            $event->description = $request->description;
+            $event->timestamp = (new DateHelper())->dateToTimestamp($request->date);
+            $event->type = $request->type;
+            unset($event->date);
+            $event->update();
+
+            return redirect()->route('events.edit', compact('event'))->with('info', 'Success!'); 
+        }
     }
 
     public function destroy(Event $event)
     {
         $event->delete();
-        return redirect()->back()->with('info', 'Запись успешно удалена'); 
+        return redirect()->back()->with('info', 'Event successfully deleted!'); 
     }
 }

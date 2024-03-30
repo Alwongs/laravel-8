@@ -5,6 +5,8 @@
 
     <main class="main">
 
+        <x-session-status :status="session('status')" :info="session('info')" />
+
         <div class="add-btn-group">
             <a class="add-btn btn-icon-add" title="add new post" href="{{ route('posts.create') }}?return_url=posts.index"></a>
         </div> 

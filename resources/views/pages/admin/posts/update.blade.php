@@ -5,6 +5,8 @@
 
     <main class="main">
 
+        <x-session-status :status="session('status')" :info="session('info')" />
+
         @if(isset($post))
             <form class="form" action="{{ route('posts.update', $post) }}" method="POST" enctype="multipart/form-data">
                 @method('PUT')
@@ -12,8 +14,6 @@
             <form class="form" action="{{ route('posts.store') }}" method="POST" enctype="multipart/form-data">
         @endif
             @csrf
-
-            <x-auth-session-status class="notification" :status="session('status')" />
 
             <input type="hidden" name="return_url" value="{{ $return_url }}">
 
