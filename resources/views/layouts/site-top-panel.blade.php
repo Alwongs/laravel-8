@@ -6,7 +6,7 @@
     <nav class="top-panel__navigation">
         <a href="/dashboard">Dashboard</a> 
         <a href="/events">Events</a> 
-        <a href="/posts">Posts</a> 
+        <a href="{{ url('blog') }}">Blog</a> 
     </nav>
     
     <div class="top-panel__auth">

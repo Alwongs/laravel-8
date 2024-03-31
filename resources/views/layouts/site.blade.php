@@ -22,5 +22,7 @@
         <div class="website">
             {{ $slot }}
         </div>
+
+        @include('layouts.site-footer')
     </body>
 </html>
