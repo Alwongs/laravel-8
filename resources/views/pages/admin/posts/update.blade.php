@@ -9,7 +9,7 @@
             <x-session-status :status="session('status')" :info="session('info')" />
 
             @if ($errors->any())
-            <ul class="notification request-validation">
+            <ul class="request-validation-errors">
                 @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>
                 @endforeach

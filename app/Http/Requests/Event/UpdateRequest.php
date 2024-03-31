@@ -31,10 +31,10 @@ class UpdateRequest extends FormRequest
         ];
     }
 
-    public function messages()
-    {
-        return [
-            'event.required' => 'Request validation: A title is required',
-        ];
-    }
+    // public function messages()
+    // {
+    //     return [
+    //         'event.required' => 'Request validation: A title is required',
+    //     ];
+    // }
 }

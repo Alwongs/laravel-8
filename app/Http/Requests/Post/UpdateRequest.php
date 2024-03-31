@@ -26,15 +26,15 @@ class StoreRequest extends FormRequest
         return [
             'post'        => ['required', 'string', 'max:255'],
             'description' => ['nullable', 'string'],
-            'image'       => ['nullable', 'image:jpg,jpeg,png,webp']
+            'image'       => ['nullable', 'image:jpg,jpeg,png,webp', 'max:3000']
         ];
     }
 
-    public function messages()
-    {
-        return [
-            'post.required' => 'Request validation: A title is required',
-            'image.image' => 'Request validation: An extension is not permited',
-        ];
-    }       
+    // public function messages()
+    // {
+    //     return [
+    //         'post.required' => 'Request validation: A title is required',
+    //         'image.image' => 'Request validation: An extension is not permited',
+    //     ];
+    // }       
 }

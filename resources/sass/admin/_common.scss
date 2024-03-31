@@ -55,6 +55,9 @@ a {
     left: 50%;
     transform: translate(-50%);
     top: 50%;
+    animation-name: dissapear;
+    animation-duration: 8s;
+    opacity: 0;
     &.error {
         border: 1px solid rgb(202, 133, 133);
         background-color: rgb(255, 219, 219);  
@@ -65,9 +68,26 @@ a {
         background-color: rgb(219, 255, 235);  
         color: rgb(0, 122, 55);   
     }
-    &.request-validation {
-        border: 1px solid rgb(202, 133, 133);
-        background-color: rgb(255, 219, 219);  
+}
+
+@keyframes dissapear {
+    0%   {opacity: 1;}
+    50%  {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+.request-validation-errors  {
+    box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgb(255, 0, 0);
+    background-color: rgb(255, 219, 219);  
+    width: fit-content;
+    text-align: center;
+    padding: 5px 30px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    top: 50%;
+    li {
         color: rgb(207, 0, 0); 
     }
 }
