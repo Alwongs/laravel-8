@@ -30,7 +30,7 @@
             <input type="hidden" name="return_url" value="{{ $return_url }}">
 
             <div class="form__input-block">
-                <input name="event" type="text" placeholder="title" value="{{ isset($event) ? $event->event : '' }}" />
+                <input name="event" type="text" placeholder="event" value="{{ isset($event) ? $event->event : '' }}" />
             </div>    
 
             <div class="form__textarea-block">

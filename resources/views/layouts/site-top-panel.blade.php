@@ -11,7 +11,7 @@
     
     <div class="">
         @auth
-            <a href="#">auth.name</a>
+            <a href="#">{{ Auth::user()->email }}</a>
         @else
             <a href="{{ route('login') }}">Login</a>   
             <a href="{{ route('register') }}" class="">Register</a>
