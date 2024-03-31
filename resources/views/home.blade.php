@@ -1,5 +1,12 @@
 <x-site-layout>
-    <header class="header">
-        <h1>Home</h1>
-    </header>
+    <section class="section section-banner">
+        <img src="{{ Storage::url('/site/main.jpg') }}" alt="main image" />
+        <h2 class="home-title">Ulyanovsk</h2>
+    </section>
+
+
+    @include('blocks.recent-posts')
+
+
+
 </x-site-layout>
