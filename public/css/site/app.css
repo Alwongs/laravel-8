@@ -104,6 +104,7 @@ a {
 
 .main {
   min-height: 100%;
+  padding: 0 30px;
 }
 
 .main-auth {
@@ -657,4 +658,60 @@ select {
     width: 100%;
     height: auto;
   }
+}
+
+.post-page-item {
+  margin-bottom: 50px;
+  display: flex;
+  height: 180px;
+  gap: 30px;
+}
+@media (max-width: 767px) {
+  .post-page-item {
+    flex-direction: column;
+    width: 100%;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+}
+.post-page-item__image {
+  background-color: lightgrey;
+  flex: 0 0 320px;
+  text-align: center;
+  height: 100%;
+}
+@media (max-width: 767px) {
+  .post-page-item__image {
+    flex: none;
+  }
+}
+.post-page-item__image img {
+  max-height: 100%;
+  max-width: 100%;
+}
+.post-page-item__text {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.post-page-item__description {
+  overflow: hidden;
+  height: 100%;
+}
+@media (max-width: 767px) {
+  .post-page-item__description {
+    flex: 0 0 110px;
+  }
+}
+.post-page-item__name {
+  font-size: 12px;
+}
+.post-page-item__date {
+  font-size: 12px;
+}
+.post-page-item__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
