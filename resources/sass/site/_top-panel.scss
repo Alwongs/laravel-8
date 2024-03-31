@@ -1,9 +1,22 @@
 .top-panel {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.3);
+    // box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.3);
     height: 50px;
     padding: 0 15px;
-
+    a {
+        font-size: 18px;
+        color: rgb(148, 47, 0);
+    }
+    a:hover {
+        color: yellow;
+    }
+    &__navigation {
+        display: flex;
+        gap: 50px;
+    }
 }
