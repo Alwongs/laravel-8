@@ -660,6 +660,11 @@ select {
   }
 }
 
+.post-page {
+  width: 800px;
+  margin: 0 auto;
+}
+
 .post-page-item {
   margin-bottom: 50px;
   display: flex;

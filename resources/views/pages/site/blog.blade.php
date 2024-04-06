@@ -4,7 +4,7 @@
         <h2 class="home-title">Blog</h2>
     </section>
 
-    <main class="main">
+    <main class="main post-page">
         @isset($posts)
             <ul class="blog-list">
                 @foreach($posts as $post)
