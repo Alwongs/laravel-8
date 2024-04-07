@@ -17,9 +17,12 @@
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
     <body>
+    @include('layouts.aside')
         @include('layouts.site-top-panel')
         
-        <div class="website">
+
+
+            <div class="website">
             {{ $slot }}
         </div>
 

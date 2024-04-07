@@ -4,9 +4,6 @@
         <h2 class="home-title">Ulyanovsk</h2>
     </section>
 
-
     @include('blocks.recent-posts')
-
-
 
 </x-site-layout>
