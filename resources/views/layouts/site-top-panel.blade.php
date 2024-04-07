@@ -10,7 +10,7 @@
     
     <div class="top-panel__auth">
         @auth
-            <a href="#">{{ Auth::user()->email }}</a>
+            <a href="#">{{ Auth::user()->name }}</a>
         @else
             <a href="{{ route('login') }}">Login</a>   
             <!-- <a href="{{ route('register') }}" class="">Register</a> -->

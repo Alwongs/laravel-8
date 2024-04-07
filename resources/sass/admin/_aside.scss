@@ -1,6 +1,6 @@
 .aside {
     background-color: rgb(166, 199, 207);
-    transition: 0.4s ease-in-out;
+    transition: 0.2s ease-in-out;
     height: 100%;
     width: 100%;
     @media (min-width: $desktop-min) and (max-width: $desktop-max) {
@@ -44,13 +44,6 @@
         display: block;
     } 
 }
-
-
-
-
-
-
-
 
 .aside-navigation {
 
