@@ -14,7 +14,7 @@
             <a href="#">{{ Auth::user()->email }}</a>
         @else
             <a href="{{ route('login') }}">Login</a>   
-            <a href="{{ route('register') }}" class="">Register</a>
+            <!-- <a href="{{ route('register') }}" class="">Register</a> -->
         @endauth
     </div>
 </header>
