@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
@@ -18,10 +19,18 @@ use App\Http\Controllers\BlogController;
 |
 */
 
+
+
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/blog', [BlogController::class, 'index'])->name('blog');
 
 Route::middleware('auth')->group(function () {
+
+    Route::get('/clear-cache', function() {
+        Artisan::call("cache:clear");
+        Artisan::call("view:clear");
+        echo "cache cleaned";
+    })->name('clear-cache');
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/events/postpone/{id}', [DashboardController::class, 'postpone'])->name('events.postpone');

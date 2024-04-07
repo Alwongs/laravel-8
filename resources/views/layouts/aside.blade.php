@@ -11,4 +11,9 @@
         <a href="{{ route('events.index') }}">Events</a>
         <a href="{{ route('posts.index') }}">Posts</a>
     </nav>
+    @auth
+        <hr>
+        </br>
+        <a href="{{ route('clear-cache') }}">Clear cache</a>
+    @endauth
 </aside>
