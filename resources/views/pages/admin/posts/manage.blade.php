@@ -17,7 +17,7 @@
             @foreach($posts as $post)
             <li class="manage-list__item">
                 <div class="manage-list__item-image">
-                    <img src="{{ asset($post->image) ?: '' }}" alt="{{ $post->image }}" />
+                    <img src="{{ Storage::url($post->image) ?: '' }}" alt="{{ $post->image }}" />
                 </div>  
 
                 <div class="manage-list__item-title">{{ $post->post }}</div> 
