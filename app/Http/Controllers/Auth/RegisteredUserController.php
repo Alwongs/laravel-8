@@ -20,6 +20,8 @@ class RegisteredUserController extends Controller
      */
     public function create()
     {
+        // echo "Error: wrong path";
+        // die();
         return view('auth.register');
     }
 

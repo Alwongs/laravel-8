@@ -1,4 +1,4 @@
-<x-site-layout>
+<x-auth-layout>
     <main class="main-auth">
         <x-auth-session-status class="mb-4" :status="session('status')" />
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
@@ -29,4 +29,4 @@
             </div>
         </form>
     </main>
-</x-site-layout>
+</x-auth-layout>
