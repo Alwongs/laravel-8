@@ -3,21 +3,15 @@
     transition: 0.4s ease-in-out;
     height: 100%;
     width: 100%;
-    @media (min-width: $desktop-min) and (max-width: $desktop-max) {
-        
-    }     
-    @media (min-width: $tablet-min) and (max-width: $tablet-max) {  
-        
-    }           
-    @media (max-width: $mobile-max) {  
-        position: absolute;
-        top: 0;
-        left: -100%;
-        z-index: 3;
-        &._active {
-            left: 0; 
-        }
-    }  
+
+    position: absolute;
+    top: 0;
+    left: -100%;
+    z-index: 3;
+    &._active {
+        left: 0; 
+    }
+
 }
 .aside__btn-block {
     margin-bottom: 100px;
