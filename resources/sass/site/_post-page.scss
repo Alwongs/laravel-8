@@ -2,6 +2,9 @@
     // border: 1px solid green;
     width: 800px;
     margin: 0 auto;
+    @media (max-width: $mobile-max) {  
+        width: 100%;
+    } 
 }
 
 .post-page-item {
