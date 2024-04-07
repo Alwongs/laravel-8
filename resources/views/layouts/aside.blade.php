@@ -6,7 +6,8 @@
 
     </div>
     <nav class="aside-navigation">
-        <a href="{{ route('home') }}">Site</a>
+        <a href="{{ route('home') }}">Home</a>
+        <a href="{{ route('blog') }}">Blog</a>
         <a href="{{ route('dashboard') }}">Dashboard</a>
         <a href="{{ route('events.index') }}">Events</a>
         <a href="{{ route('posts.index') }}">Posts</a>
