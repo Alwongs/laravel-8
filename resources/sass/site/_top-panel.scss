@@ -1,12 +1,12 @@
 .top-panel {
-    position: absolute;
-    z-index: 2;
+    background-color: $baseBg;
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 50px;
     padding: 0 15px;
+    margin-bottom: 70px;
     &__home-link {    
         text-transform: capitalize;
         @media (max-width: $mobile-max) {  
@@ -22,15 +22,14 @@
     }
     a {
         font-size: 18px;
-        color: rgb(148, 47, 0);
+        color: white;
         cursor: pointer;
         @media (max-width: $mobile-max) {  
-            color: $baseText;
             font-weight: bold;
         } 
     }
     a:hover {
-        color: yellow;
+        color: rgb(255, 255, 255);
     }
     &__navigation {
         display: flex;

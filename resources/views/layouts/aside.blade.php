@@ -3,18 +3,25 @@
         <button id="aside-btn-close-menu" class="aside__btn-close-menu">
             Close
         </button>
-
     </div>
-    <nav class="aside-navigation">
-        <a href="{{ route('home') }}">Home</a>
-        <a href="{{ route('blog') }}">Blog</a>
-        <a href="{{ route('dashboard') }}">Dashboard</a>
-        <a href="{{ route('events.index') }}">Events</a>
-        <a href="{{ route('posts.index') }}">Posts</a>
-    </nav>
+
+    <div class="aside-navigation">
+        <h2 class="aside-navigation__title">Navigation</h2>
+        <nav class="aside-navigation__body nav-site">
+            <a href="{{ route('home') }}">Home</a>
+            <a href="{{ route('blog') }}">Blog</a>
+            <a style="color:grey;" href="#">Gallery <small style="color:grey;">(not ready yet)</small></a>
+        </nav>
+    </div>
+
     @auth
-        <hr>
-        </br>
-        <a href="{{ route('clear-cache') }}">Clear cache</a>
+    <div class="aside-navigation">
+        <h2 class="aside-navigation__title">Administation</h2>
+        <nav class="aside-navigation__body nav-admin">
+            <a href="{{ route('dashboard') }}">Dashboard</a>
+            <a href="{{ route('events.index') }}">Events</a>
+            <a href="{{ route('posts.index') }}">Posts</a>
+        </nav>
+    </div>
     @endauth
 </aside>

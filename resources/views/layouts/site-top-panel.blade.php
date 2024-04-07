@@ -6,6 +6,7 @@
         <a href="/dashboard">Dashboard</a> 
         <a href="/events">Events</a> 
         <a href="{{ url('blog') }}">Blog</a> 
+        <a href="#">Gallery</a> 
     </nav>
     
     <div class="top-panel__auth">

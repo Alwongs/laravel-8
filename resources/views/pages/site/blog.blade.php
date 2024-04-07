@@ -3,6 +3,7 @@
         <img src="{{ Storage::url('/site/main.jpg') }}" alt="main image" />
         <h2 class="home-title">Blog</h2>
     </section>
+    @include('layouts.site-top-panel')
 
     <main class="main post-page">
         @isset($posts)

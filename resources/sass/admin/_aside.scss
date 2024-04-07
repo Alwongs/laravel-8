@@ -46,13 +46,18 @@
 }
 
 .aside-navigation {
-
+    margin-bottom: 50px;
+    &__title {
+        font-size: 20px;
+        padding: 0 20px;
+        margin-bottom: 10px;
+    }
     a {
         display: block;
-        padding: 15px 0 10px 20px;
+        padding: 10px 10px 10px 40px;
         border-bottom: 1px solid rgb(100, 146, 160);
         transition: 0.2s;
-        font-size: 22px;
+        font-size: 18px;
     }
     a:hover {
         background-color: rgb(184, 220, 230);        
