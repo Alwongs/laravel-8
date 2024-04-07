@@ -22,36 +22,5 @@
         </section>
 
 
-
-        <section class="tasks">
-            <h2>Taks</h2>
-            <ul>
-                <li>task 1</li>
-                <li>task 2</li>
-                <li>task 1</li>
-                <li>task 2</li>
-                <li>task 1</li>
-                <li>task 2</li>
-                <li>task 1</li>
-                <li>task 2</li>
-                <li>task 1</li>
-                <li>task 2</li>
-                <li>task 1</li>
-                <li>task 2</li>
-                <li>task 1</li>
-                <li>task 2</li>
-                <li>task 1</li>
-                <li>task 2</li>
-                <li>task 1</li>
-                <li>task 2</li>
-                <li>task 1</li>
-                <li>task 2</li>
-                <li>task 1</li>
-                <li>task 2</li>
-                <li>task 1</li>
-                <li>task 2</li>
-            </ul>
-        </seciton>
-
     </main>
 </x-admin-layout>
