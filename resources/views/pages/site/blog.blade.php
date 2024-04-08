@@ -9,23 +9,7 @@
         @isset($posts)
             <ul class="blog-list">
                 @foreach($posts as $post)
-                    <li class="post-page-item">
-                        <div class="post-page-item__image">
-                            @if ($post->image)
-                                <img src="{{ Storage::url($post->image) }}" alt="" title="" />
-                            @else
-                                <img src="/images/default-post-image.jpg" alt="" >
-                            @endif
-                        </div>
-                        <div class="post-page-item__text">
-                            <h3 class="post-page-item__title">{{ $post->post }}</h3>
-                            <p class="post-page-item__description">{{ $post->description }}</p>
-                            <div class="post-page-item__footer">
-                                <span class="post-page-item__date">{{ $post->timestamp }} {{ $post->user->name }}</span>
-                                <a href="/">Read more</a>
-                            </div>
-                        </div>
-                    </li>
+                    @include('pages.site.post-card')  
                 @endforeach
             </ul>
         @endisset

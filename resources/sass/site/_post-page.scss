@@ -10,9 +10,6 @@
 .post-page-item {
     // border: 1px solid red;
     margin-bottom: 50px;
-    display: flex;
-    height: 180px;
-    gap: 30px;
     @media (min-width: $desktop-min) and (max-width: $desktop-max) {
       
     }     
@@ -24,6 +21,11 @@
         width: 100%;
         height: fit-content;
     }  
+    &__content {
+        height: 180px;
+        display: flex;
+        gap: 30px;
+    }
     &__image {
         background-color: lightgrey;
         flex: 0 0 320px;
