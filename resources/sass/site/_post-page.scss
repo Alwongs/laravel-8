@@ -9,22 +9,27 @@
 
 .post-page-item {
     // border: 1px solid red;
-    margin-bottom: 50px;
-    @media (min-width: $desktop-min) and (max-width: $desktop-max) {
-      
-    }     
-    @media (min-width: $tablet-min) and (max-width: $tablet-max) {  
-           
-    }           
-    @media (max-width: $mobile-max) {  
-        flex-direction: column;  
-        width: 100%;
-        height: fit-content;
-    }  
+    margin-bottom: 70px;
+    &__title {
+        // border: 1px solid red;
+        margin-bottom: 15px;
+        font-size: 22px;
+    }
     &__content {
         height: 180px;
         display: flex;
         gap: 30px;
+        @media (min-width: $desktop-min) and (max-width: $desktop-max) {
+      
+        }     
+        @media (min-width: $tablet-min) and (max-width: $tablet-max) {  
+               
+        }           
+        @media (max-width: $mobile-max) {  
+            flex-direction: column;  
+            width: 100%;
+            height: fit-content;
+        }  
     }
     &__image {
         background-color: lightgrey;
@@ -60,9 +65,6 @@
         @media (max-width: $mobile-max) { 
             
         }         
-    }
-    &__title {
-
     }
     &__description {
         // border: 1px solid red;
