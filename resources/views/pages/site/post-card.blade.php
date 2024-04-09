@@ -10,9 +10,12 @@
             @endif
         </div>
         <div class="post-page-item__text">
+            <div class="post-page-item__header">
+                <a class="post-page-item__author" href="#">{{ $post->user->name }}</a>
+                <a class="post-page-item__created-at" href="#">{{ $post->created_at }}</a>
+            </div>
             <p class="post-page-item__description">{{ $post->description }}</p>
             <div class="post-page-item__footer">
-                <span class="post-page-item__date">{{ $post->created_at }} {{ $post->user->name }}</span>
                 <a href="/">Read more</a>
             </div>
         </div>
