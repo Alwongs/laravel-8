@@ -14,10 +14,10 @@
                 <a class="post-page-item__author" href="#">{{ $post->user->name }}</a>
                 <a class="post-page-item__created-at" href="#">{{ $post->created_at }}</a>
             </div>
+
             <p class="post-page-item__description">{{ $post->description }}</p>
-            <div class="post-page-item__footer">
-                <a href="/">Read more</a>
-            </div>
+            
+            <a class="post-page-item__footer" href="/">Read more</a>
         </div>
     </div>
 
