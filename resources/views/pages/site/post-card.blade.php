@@ -17,7 +17,7 @@
 
             <p class="post-page-item__description">{{ $post->description }}</p>
             
-            <a class="post-page-item__footer" href="/">Read more</a>
+            <a class="post-page-item__footer" href="{{ route('post', $post->id) }}">Read more</a>
         </div>
     </div>
 

@@ -13,4 +13,11 @@ class BlogController extends Controller
 
         return view('pages/site/blog', compact('posts'));
     }
+
+    public function show($id) {
+
+        $post = Post::find($id);
+
+        return view('pages/site/post', compact('post'));
+    }
 }
