@@ -15,7 +15,7 @@
                 @foreach($vizits as $vizit)
                 <li class="manage-list__item"> 
 
-                    <div class="manage-list__item-date-time">{{ date("d.m.Y h:s", strtotime($vizit->created_at)) }}</div> 
+                    <div class="manage-list__item-date-time">{{ date("d.m.Y h:s", strtotime($vizit->created_at->setTimezone('Europe/Ulyanovsk'))) }}</div> 
 
                     <div class="manage-list__item-ip">{{ $vizit->ip_address }}</div> 
 
