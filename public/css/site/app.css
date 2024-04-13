@@ -839,6 +839,32 @@ select {
     width: 100%;
   }
 }
+.post-page__title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.post-page__image {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.post-page__description {
+  margin-bottom: 20px;
+}
+.post-page__footer {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  align-items: center;
+}
+.post-page__author {
+  font-size: 12px;
+  color: rgb(158, 63, 63);
+}
+.post-page__created-at {
+  font-size: 10px;
+  opacity: 0.7;
+}
+
 .blog-page-item {
   margin-bottom: 70px;
 }

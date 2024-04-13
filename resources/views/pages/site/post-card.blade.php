@@ -3,11 +3,13 @@
     <h3 class="blog-page-item__title">{{ $post->post }}</h3>
     <div class="blog-page-item__content">
         <div class="blog-page-item__image">
-            @if ($post->image)
-                <img src="{{ Storage::url($post->image) }}" alt="" title="" />
-            @else
-                <img src="/images/default-post-image.jpg" alt="" >
-            @endif
+            <a class="" href="{{ route('post', $post->id) }}">
+                @if ($post->image)
+                    <img src="{{ Storage::url($post->image) }}" alt="" title="" />
+                @else
+                    <img src="/images/default-post-image.jpg" alt="" >
+                @endif
+            </a>
         </div>
         <div class="blog-page-item__text">
             <div class="blog-page-item__header">

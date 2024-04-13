@@ -17,7 +17,12 @@
                 @endif
             </div>     
                    
-            <p class="post-page__description">{{ $post->description }}</h1>
+            <p class="post-page__description">{{ $post->description }}</p>
+
+            <div class="post-page__footer">
+                <a class="post-page__created-at" href="#">{{ $post->created_at }}</a>
+                <a class="post-page__author" href="#">{{ $post->user->name }}</a>
+            </div>            
         @endisset
     </main>
 
