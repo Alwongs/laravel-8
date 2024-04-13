@@ -1,4 +1,4 @@
-.post-page {
+.blog-page {
     // border: 1px solid green;
     width: 800px;
     margin: 0 auto;
@@ -7,7 +7,25 @@
     } 
 }
 
-.post-page-item {
+.post-page {
+    // border: 1px solid green;
+    width: 800px;
+    margin: 0 auto;
+    @media (max-width: $mobile-max) {  
+        width: 100%;
+    }   
+    &__title {
+
+    }  
+    &__image {
+
+    }
+    &__description {
+        
+    }
+}
+
+.blog-page-item {
     // border: 1px solid red;
     margin-bottom: 70px;
     &__title {

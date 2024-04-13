@@ -29,6 +29,14 @@
         }
 
     }
+    &__item-date-time {
+// border: 1px solid red;
+padding-right: 30px;
+    }
+    &__item-ip {
+        // border: 1px solid red;
+        flex: 1 0 auto;
+    }
     &__item-title {
         flex: 1 0 300px;
         white-space: nowrap;

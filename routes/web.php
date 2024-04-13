@@ -29,6 +29,8 @@ Route::get('/post/{id}', [BlogController::class, 'show'])->name('post');
 Route::middleware('auth')->group(function () {
 
     Route::get('/vizits', [VizitController::class, 'index'])->name('vizits');
+    Route::get('/clear-vizits', [VizitController::class, 'clear'])->name('clear-vizits');
+
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/events/postpone/{id}', [DashboardController::class, 'postpone'])->name('events.postpone');
 

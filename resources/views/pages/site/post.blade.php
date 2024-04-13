@@ -7,17 +7,17 @@
 
     <main class="main post-page">
         @isset($post)
-            <h1>{{ $post->post }}</h1>
+            <h1 class="post-page__title">{{ $post->post }}</h1>
 
-            <div class="post-page-item__image">
+            <div class="post-page__image">
                 @if ($post->image)
                     <img src="{{ Storage::url($post->image) }}" alt="" title="" />
                 @else
-                    <img src="/images/default-post-image.jpg" alt="" >
+                    <img src="/images/default-post-image.jpg" alt="" title="" >
                 @endif
             </div>     
                    
-            <p>{{ $post->description }}</h1>
+            <p class="post-page__description">{{ $post->description }}</h1>
         @endisset
     </main>
 

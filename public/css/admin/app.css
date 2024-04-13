@@ -357,6 +357,12 @@ a {
 .manage-list__item-image img {
   height: 100%;
 }
+.manage-list__item-date-time {
+  padding-right: 30px;
+}
+.manage-list__item-ip {
+  flex: 1 0 auto;
+}
 .manage-list__item-title {
   flex: 1 0 300px;
   white-space: nowrap;

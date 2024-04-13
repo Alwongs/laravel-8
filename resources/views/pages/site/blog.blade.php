@@ -5,7 +5,7 @@
     </section>
     @include('layouts.site-top-panel')
 
-    <main class="main post-page">
+    <main class="main blog-page">
         @isset($posts)
             <ul class="blog-list">
                 @foreach($posts as $post)

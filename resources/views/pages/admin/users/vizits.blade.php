@@ -9,23 +9,27 @@
 
             <div class="notification-block">
                 <x-session-status :status="session('status')" :info="session('info')" />
-            </div>    
+            </div>   
+            @if(count($vizits) > 0)
+            <div class="btn-block">
+                <a class="btn btn-red" title="clear table" href="{{ route('clear-vizits') }}?return_url=vizits">
+                    Clear table
+                </a>
+            </div> 
+            @endif
         
             <ul class="manage-list">
                 @foreach($vizits as $vizit)
                 <li class="manage-list__item"> 
 
-                    <div class="manage-list__item-date-time">{{ date("d.m.Y h:s", strtotime($vizit->created_at->setTimezone('Europe/Ulyanovsk'))) }}</div> 
+                    <div class="manage-list__item-date-time" title="{{ $vizit->user_agent }}">
+                    {{ $vizit->created_at->setTimezone('Europe/Ulyanovsk')->format("d.m.Y H:i") }}
+                    </div> 
 
-                    <div class="manage-list__item-ip">{{ $vizit->ip_address }}</div> 
+                    <div class="manage-list__item-ip" title="{{ $vizit->user_agent }}">
+                        {{ $vizit->ip_address }}
+                    </div>   
 
-                    <div class="manage-list__item-ip">{{ $vizit->user_agent }}</div> 
-
-                    <form action="#" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <button href="#" class="cell-btn btn-icon-delete"></button> 
-                    </form>     
                 </li>        
                 @endforeach
             </ul>          
