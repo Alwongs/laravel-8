@@ -13,10 +13,7 @@ class VizitController extends Controller
     public function index() {
 
         if (Auth::id() == 1) {
-            $vizits = Vizit::all();
-
-// dd($vizits);
-
+            $vizits = Vizit::orderBy('created_at', 'DESC')->take();
 
             return view('pages/admin/users/vizits', compact('vizits'));
         }
