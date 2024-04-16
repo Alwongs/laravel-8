@@ -14,10 +14,8 @@ class VizitController extends Controller
 
         if (Auth::id() == 1) {
             $vizits = Vizit::all();
-
             return view('pages/admin/users/vizits', compact('vizits'));
         }
-
         return redirect()->route('home');
     }
 
