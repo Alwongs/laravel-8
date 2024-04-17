@@ -7,7 +7,7 @@
             @csrf
 
             <div class="form__input-block">
-                <input name="email" type="email" placeholder="email" value="alwong@ya.ru" required/>
+                <input name="email" type="email" placeholder="email" value="" required/>
             </div>        
 
             <div class="form__input-block">
