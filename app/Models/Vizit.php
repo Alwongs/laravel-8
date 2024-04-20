@@ -9,5 +9,5 @@ class Vizit extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['ip_address', 'user_agent'];
+    protected $fillable = ['ip_address', 'user_agent', 'city', 'country'];
 }

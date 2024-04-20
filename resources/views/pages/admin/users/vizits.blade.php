@@ -30,6 +30,14 @@
                         {{ $vizit->ip_address }}
                     </div>   
 
+                    <div class="manage-list__item-ip" title="{{ $vizit->user_agent }}">
+                        {{ $vizit->country }}
+                    </div>   
+
+                    <div class="manage-list__item-ip" title="{{ $vizit->user_agent }}">
+                        {{ $vizit->city }}
+                    </div>   
+
                 </li>        
                 @endforeach
             </ul>          
