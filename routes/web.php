@@ -28,7 +28,7 @@ if (
     Route::get('/blog', [BlogController::class, 'index'])->name('blog');
     Route::get('/post/{id}', [BlogController::class, 'show'])->name('post');
 } else {
-    Route::get('/{any}', function() {
+    Route::get('/{any?}', function() {
         return view('maintenance');
     }); 
 }
