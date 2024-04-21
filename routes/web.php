@@ -20,18 +20,13 @@ use App\Http\Controllers\VizitController;
 |
 */
 
-if (
-    !empty($_REQUEST['blog_access_key'])
-    && $_REQUEST['blog_access_key'] !== env('BLOG_ACCESS_KEY')
-) {
-    Route::get('/', [HomeController::class, 'index'])->name('home');
-    Route::get('/blog', [BlogController::class, 'index'])->name('blog');
-    Route::get('/post/{id}', [BlogController::class, 'show'])->name('post');
-} else {
-    Route::get('/{any?}', function() {
-        return view('maintenance');
-    }); 
+if ($_SERVER['REMOTE_ADDR'] != "176.116.141.115" && $_SERVER['REMOTE_ADDR'] != "127.0.0.1") {
+    Route::get('/{any?}', [HomeController::class, 'closeSite'])->name('maintenance');
 }
+
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/blog', [BlogController::class, 'index'])->name('blog');
+Route::get('/post/{id}', [BlogController::class, 'show'])->name('post');
 
 Route::middleware('auth')->group(function () {
 
@@ -46,7 +41,5 @@ Route::middleware('auth')->group(function () {
         'posts' => PostController::class, 
     ]);
 });
-
-
 
 require __DIR__.'/auth.php';
