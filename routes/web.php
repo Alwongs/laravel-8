@@ -20,11 +20,18 @@ use App\Http\Controllers\VizitController;
 |
 */
 
-
-
-Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/blog', [BlogController::class, 'index'])->name('blog');
-Route::get('/post/{id}', [BlogController::class, 'show'])->name('post');
+if (
+    !empty($_REQUEST['blog_access_key'])
+    && $_REQUEST['blog_access_key'] !== env('BLOG_ACCESS_KEY')
+) {
+    Route::get('/', [HomeController::class, 'index'])->name('home');
+    Route::get('/blog', [BlogController::class, 'index'])->name('blog');
+    Route::get('/post/{id}', [BlogController::class, 'show'])->name('post');
+} else {
+    Route::get('/{any}', function() {
+        return view('maintenance');
+    }); 
+}
 
 Route::middleware('auth')->group(function () {
 

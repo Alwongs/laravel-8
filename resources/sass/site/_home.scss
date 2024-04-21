@@ -67,3 +67,15 @@
         font-size: 30px;     
     }      
 }
+
+.maintenance {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.maintenance img {
+    @media (max-width: $mobile-max) {  
+        width: 90%;    
+    }  
+}
