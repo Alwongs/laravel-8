@@ -19,6 +19,6 @@ class DashboardCard extends Component
  
     public function render()
     {
-        return view('components.dashboard-card');
+        return view('my-components.dashboard-card');
     }
 }
