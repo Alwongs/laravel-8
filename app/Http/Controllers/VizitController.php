@@ -19,6 +19,15 @@ class VizitController extends Controller
         return redirect()->route('home');
     }
 
+
+    public function show($id) {
+
+        $vizit = Vizit::find($id);
+
+        return view('pages/admin/users/vizit', compact('vizit'));
+    }
+
+
     public function clear() {
         DB::table('vizits')->truncate();
 

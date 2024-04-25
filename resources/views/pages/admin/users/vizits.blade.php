@@ -23,7 +23,7 @@
                 <li class="manage-list__item"> 
 
                     <div class="manage-list__item-date-time" title="{{ $vizit->user_agent }}">
-                    {{ $vizit->created_at->setTimezone('Europe/Ulyanovsk')->format("d.m.Y H:i") }}
+                        {{ $vizit->created_at->setTimezone('Europe/Ulyanovsk')->format("d.m.Y H:i") }}
                     </div> 
 
                     <div class="manage-list__item-ip" title="{{ $vizit->user_agent }}">
@@ -40,7 +40,9 @@
 
                     <div class="manage-list__item-ip" title="{{ $vizit->user_agent }}">
                         {{ $vizit->city }}
-                    </div>   
+                    </div> 
+                    
+                    <a href="{{ route('vizit', $vizit->id) }}">Look</a>
 
                 </li>        
                 @endforeach

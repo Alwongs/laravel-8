@@ -95,3 +95,16 @@ padding-right: 30px;
         display: none;                
     }      
 }
+
+.simple-table {
+    border-collapse: collapse;
+    td {
+        border: 1px solid rgb(110, 128, 146);
+        padding: 4px;
+    }
+    &__key {
+        width: 150px;
+        font-weight: bold;
+        font-size: 14px;
+    }
+}

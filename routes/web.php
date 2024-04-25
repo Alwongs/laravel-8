@@ -40,6 +40,7 @@ Route::get('/post/{id}', [BlogController::class, 'show'])->name('post');
 Route::middleware('auth')->group(function () {
 
     Route::get('/vizits', [VizitController::class, 'index'])->name('vizits');
+    Route::get('/vizit/{id}', [VizitController::class, 'show'])->name('vizit');
     Route::get('/clear-vizits', [VizitController::class, 'clear'])->name('clear-vizits');
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
