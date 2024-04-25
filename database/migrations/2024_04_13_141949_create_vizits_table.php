@@ -15,12 +15,12 @@ class CreateVizitsTable extends Migration
     {
         Schema::create('vizits', function (Blueprint $table) {
             $table->id();
-            $table->string('ip_address', 50);
-            $table->string('country', 50);
-            $table->string('city', 50);
-            $table->string('user_agent');
-            $table->string('query_string');
-            $table->string('request_uri');
+            $table->string('ip_address', 50)->nullable();
+            $table->string('country', 50)->nullable();
+            $table->string('city', 50)->nullable();
+            $table->string('user_agent')->nullable();
+            $table->string('query_string')->nullable();
+            $table->string('request_uri')->nullable();
             $table->timestamps();
         });
     }
