@@ -27,7 +27,11 @@
                     </div> 
 
                     <div class="manage-list__item-ip" title="{{ $vizit->user_agent }}">
-                        {{ $vizit->ip_address }}
+                        @if($vizit->ip_address == '176.116.141.115')
+                            <span style="color:green;">Evo-73 provider</span>
+                        @else
+                            {{ $vizit->ip_address }}
+                        @endif
                     </div>   
 
                     <div class="manage-list__item-ip" title="{{ $vizit->user_agent }}">

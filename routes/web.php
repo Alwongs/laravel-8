@@ -20,7 +20,12 @@ use App\Http\Controllers\VizitController;
 |
 */
 
-if ($_SERVER['REMOTE_ADDR'] != "176.116.141.115" && $_SERVER['REMOTE_ADDR'] != "127.0.0.1") {
+if (
+    !config('site.open') 
+    && !empty($_SERVER['REMOTE_ADDR']) 
+    && $_SERVER['REMOTE_ADDR'] != "176.116.141.115" 
+    && $_SERVER['REMOTE_ADDR'] != "127.0.0.1"
+) {
     Route::get('/{any?}', [HomeController::class, 'closeSite'])->name('maintenance');
 }
 
