@@ -19,6 +19,8 @@ class CreateVizitsTable extends Migration
             $table->string('country', 50);
             $table->string('city', 50);
             $table->string('user_agent');
+            $table->string('query_string');
+            $table->string('request_uri');
             $table->timestamps();
         });
     }

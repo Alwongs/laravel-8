@@ -1,5 +1,7 @@
 <?php
 
+use App\Functions\VizitHelper;
+use ElFactory\IpApi\IpApi;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -21,11 +23,12 @@ use App\Http\Controllers\VizitController;
 */
 
 if (
-    !config('site.open') 
+    config('site.open') == false
+    && config('app.env') != 'local'
     && !empty($_SERVER['REMOTE_ADDR']) 
     && $_SERVER['REMOTE_ADDR'] != "176.116.141.115" 
-    && $_SERVER['REMOTE_ADDR'] != "127.0.0.1"
 ) {
+    VizitHelper::saveVizit($_SERVER);
     Route::get('/{any?}', [HomeController::class, 'closeSite'])->name('maintenance');
 }
 
