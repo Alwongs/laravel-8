@@ -2,6 +2,9 @@
 
 namespace App\Functions;
 
+use App\Models\Vizit;
+use ElFactory\IpApi\IpApi;
+
 class VizitHelper
 {
     public static function saveVizit($server)
