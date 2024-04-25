@@ -28,8 +28,9 @@ if (
     && !empty($_SERVER['REMOTE_ADDR']) 
     && $_SERVER['REMOTE_ADDR'] != "176.116.141.115" 
 ) {
-    VizitHelper::saveVizit($_SERVER);
     Route::get('/{any?}', [HomeController::class, 'closeSite'])->name('maintenance');
+} else {
+    VizitHelper::saveVizit($_SERVER);
 }
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
