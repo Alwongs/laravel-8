@@ -1,12 +1,14 @@
 .top-panel {
     background-color: $baseBg;
     width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     height: 50px;
-    padding: 0 15px;
-    margin-bottom: 70px;
+    margin-bottom: 30px;
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+    }
     &__home-link {    
         text-transform: capitalize;
         @media (max-width: $mobile-max) {  
