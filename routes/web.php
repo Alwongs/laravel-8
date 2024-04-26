@@ -7,6 +7,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\MessageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,7 +32,8 @@ if (
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/blog', [BlogController::class, 'index'])->name('blog');
 Route::get('/post/{id}', [BlogController::class, 'show'])->name('post');
-Route::get('/contact-us}', [ContactController::class, 'show'])->name('post');
+Route::get('/contact-us', [MessageController::class, 'create'])->name('contact-us');
+Route::get('/store-message', [MessageController::class, 'create'])->name('store-message');
 
 Route::middleware('auth')->group(function () {
 

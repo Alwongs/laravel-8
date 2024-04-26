@@ -8,6 +8,4 @@
 
     @include('blocks.recent-posts')
 
-    <small style="color:bluegrey">{{ $user_timezone }}<small>
-
 </x-site-layout>
