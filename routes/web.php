@@ -40,7 +40,7 @@ Route::post('/store-message', [MessageController::class, 'store'])->name('store-
 Route::middleware('auth')->group(function () {
 
     Route::get('/messages', [MessageController::class, 'index'])->name('messages');
-    Route::post('/clear-messages', [MessageController::class, 'index'])->name('clear-messages');
+    Route::get('/clear-messages', [MessageController::class, 'clear'])->name('clear-messages');
     Route::get('/message/{id}', [MessageController::class, 'show'])->name('message');
 
     Route::get('/vizits', [VizitController::class, 'index'])->name('vizits');

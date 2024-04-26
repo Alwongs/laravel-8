@@ -22,7 +22,14 @@
             <a href="{{ route('events.index') }}">Events</a>
             <a href="{{ route('posts.index') }}">Posts</a>
             <a href="{{ route('vizits') }}">Vizits</a>
-            <a href="{{ route('messages') }}">Messages</a>
+            <a href="{{ route('messages') }}">
+                <span>Messages </span>
+                @if(Session::has('messageCount'))
+                    <span style="color:green;fomt-weight:600;">
+                        {{ Session::get('messageCount')}}
+                    </span>
+                @endif
+            </a>
         </nav>
     </div>
     @endauth

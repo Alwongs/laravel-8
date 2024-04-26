@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Message;
+use Illuminate\Support\Facades\DB;
 use App\Models\Vizit;
 use ElFactory\IpApi\IpApi;
 use Illuminate\Support\Facades\Auth;
@@ -45,5 +46,11 @@ class MessageController extends Controller
             
             return redirect()->route('home')->with('info', 'Mesage has been sent!'); 
         }
+    }
+
+    public function clear() {
+        DB::table('messages')->truncate();
+        session(['messageCount' => '']);
+        return redirect()->route('messages')->with('info', 'table messages cleaned!'); 
     }
 }

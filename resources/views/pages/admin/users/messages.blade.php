@@ -10,13 +10,11 @@
             <div class="notification-block">
                 <x-session-status :status="session('status')" :info="session('info')" />
             </div>   
-            <!-- @if(count($messages) > 0)
-            <form name="{{ route('clear-messages') }}" class="btn-block">
-                <button class="btn btn-red" title="clear table" href="">
+            @if(count($messages) > 0)
+                <a href="{{ route('clear-messages') }}" class="btn btn-red" title="clear table">
                     Clear table
-                </button>
-            </div> 
-            @endif -->
+                </a>
+            @endif
         
             <ul class="manage-list">
                 @foreach($messages as $message)
