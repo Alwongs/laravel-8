@@ -8,6 +8,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\VizitController;
 
 /*
 |--------------------------------------------------------------------------
