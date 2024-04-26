@@ -10,13 +10,13 @@
             <div class="notification-block">
                 <x-session-status :status="session('status')" :info="session('info')" />
             </div>   
-            @if(count($messages) > 0)
+            <!-- @if(count($messages) > 0)
             <form name="{{ route('clear-messages') }}" class="btn-block">
                 <button class="btn btn-red" title="clear table" href="">
                     Clear table
                 </button>
             </div> 
-            @endif
+            @endif -->
         
             <ul class="manage-list">
                 @foreach($messages as $message)
@@ -37,6 +37,8 @@
                     <div class="manage-list__item-ip" title="">
                         {{ $message->city }}
                     </div> 
+
+                    <a href="{{ route('message', $message->id) }}">Look</a>
 
                 </li>        
                 @endforeach

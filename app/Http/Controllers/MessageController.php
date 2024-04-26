@@ -18,6 +18,13 @@ class MessageController extends Controller
         return view('pages/admin/users/messages', compact('messages'));
     }
 
+    public function show($id) {
+
+        $message = Message::find($id);
+
+        return view('pages/admin/users/message', compact('message'));
+    }
+
     public function create() {
 
         return view('pages/site/messages/update');

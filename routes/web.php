@@ -35,10 +35,13 @@ Route::get('/post/{id}', [BlogController::class, 'show'])->name('post');
 Route::get('/contact-us', [MessageController::class, 'create'])->name('contact-us');
 Route::get('/create-message', [MessageController::class, 'create'])->name('create-message');
 Route::post('/store-message', [MessageController::class, 'store'])->name('store-message');
-Route::get('/messages', [MessageController::class, 'index'])->name('messages');
-Route::post('/clear-messages', [MessageController::class, 'index'])->name('clear-messages');
+
 
 Route::middleware('auth')->group(function () {
+
+    Route::get('/messages', [MessageController::class, 'index'])->name('messages');
+    Route::post('/clear-messages', [MessageController::class, 'index'])->name('clear-messages');
+    Route::get('/message/{id}', [MessageController::class, 'show'])->name('message');
 
     Route::get('/vizits', [VizitController::class, 'index'])->name('vizits');
     Route::get('/vizit/{id}', [VizitController::class, 'show'])->name('vizit');
