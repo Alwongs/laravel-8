@@ -33,7 +33,9 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/blog', [BlogController::class, 'index'])->name('blog');
 Route::get('/post/{id}', [BlogController::class, 'show'])->name('post');
 Route::get('/contact-us', [MessageController::class, 'create'])->name('contact-us');
-Route::get('/store-message', [MessageController::class, 'create'])->name('store-message');
+Route::get('/create-message', [MessageController::class, 'create'])->name('create-message');
+Route::post('/store-message', [MessageController::class, 'store'])->name('store-message');
+Route::get('/messages', [MessageController::class, 'index'])->name('messages');
 
 Route::middleware('auth')->group(function () {
 

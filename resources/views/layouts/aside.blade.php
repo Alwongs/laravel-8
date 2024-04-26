@@ -22,6 +22,7 @@
             <a href="{{ route('events.index') }}">Events</a>
             <a href="{{ route('posts.index') }}">Posts</a>
             <a href="{{ route('vizits') }}">Vizits</a>
+            <a href="{{ route('messages') }}">Messages</a>
         </nav>
     </div>
     @endauth
