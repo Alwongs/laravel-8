@@ -13,7 +13,7 @@
         
             <table class="simple-table">
                 <tr>
-                    <td class="simple-table__key">ip_address:</td>
+                    <td class="simple-table__key">datetime:</td>
                     <td>{{ $message->created_at->setTimezone('Europe/Ulyanovsk')->format("d.m.Y H:i") }}</td>
                 </tr>   
                 <tr>

@@ -1,5 +1,13 @@
 .footer {
     background-color: rgb(44, 129, 111);
+    &__flex-item a {
+        transition: 0.3s;
+        color: rgb(255, 255, 170);
+        &:hover {
+            color: rgb(253, 253, 31); 
+            text-decoration: underline;
+        }
+    }
 }
 
 .container-footer {
