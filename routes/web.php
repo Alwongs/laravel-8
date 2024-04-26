@@ -1,7 +1,5 @@
 <?php
 
-use App\Functions\VizitHelper;
-use ElFactory\IpApi\IpApi;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -9,7 +7,6 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\BlogController;
-use App\Http\Controllers\VizitController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,16 +23,15 @@ if (
     config('site.open') == false
     && config('app.env') != 'local'
     && !empty($_SERVER['REMOTE_ADDR']) 
-    && $_SERVER['REMOTE_ADDR'] != "176.116.141.115" 
+    && $_SERVER['REMOTE_ADDR'] != "176.116.141.115"
 ) {
     Route::get('/{any?}', [HomeController::class, 'closeSite'])->name('maintenance');
-} else {
-    VizitHelper::saveVizit($_SERVER);
 }
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/blog', [BlogController::class, 'index'])->name('blog');
 Route::get('/post/{id}', [BlogController::class, 'show'])->name('post');
+Route::get('/contact-us}', [ContactController::class, 'show'])->name('post');
 
 Route::middleware('auth')->group(function () {
 

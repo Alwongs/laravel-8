@@ -6,11 +6,15 @@ use Illuminate\Http\Request;
 use App\Models\Event;
 use App\Functions\EventHelper;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\VizitController;
+use App\Functions\VizitHelper;
 
 class DashboardController extends Controller
 {
     public function index()
     {
+        VizitHelper::saveVizit($_SERVER);
+
         $events = Event::where('user_id', Auth::id())->get();
         list($overdue, $today, $tomorrow, $in_week) = EventHelper::chunckEventsToPeriods($events); 
 
