@@ -36,6 +36,7 @@ Route::get('/contact-us', [MessageController::class, 'create'])->name('contact-u
 Route::get('/create-message', [MessageController::class, 'create'])->name('create-message');
 Route::post('/store-message', [MessageController::class, 'store'])->name('store-message');
 Route::get('/messages', [MessageController::class, 'index'])->name('messages');
+Route::post('/clear-messages', [MessageController::class, 'index'])->name('clear-messages');
 
 Route::middleware('auth')->group(function () {
 

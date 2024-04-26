@@ -12,6 +12,12 @@ use App\Http\Requests\Message\StoreRequest;
 
 class MessageController extends Controller
 {
+    public function index() {
+
+        $messages = Message::all();
+        return view('pages/admin/users/messages', compact('messages'));
+    }
+
     public function create() {
 
         return view('pages/site/messages/update');
