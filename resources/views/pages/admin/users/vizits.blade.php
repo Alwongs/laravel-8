@@ -26,7 +26,7 @@
                         {{ $vizit->created_at->setTimezone('Europe/Ulyanovsk')->format("d.m.Y H:i") }}
                     </div> 
 
-                    <div class="manage-list__item-ip" title="{{ $vizit->user_agent }}">
+                    <div class="manage-list__item-ip" title="{{ $vizit->request_uri }}">
                         @if($vizit->ip_address == '176.116.141.115')
                             <span style="color:green;">Evo-73 provider</span>
                         @else

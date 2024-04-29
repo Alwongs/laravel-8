@@ -4,8 +4,8 @@
     <div class="blog-page-item__content">
         <div class="blog-page-item__image">
             <a class="" href="{{ route('post', $post->id) }}">
-                @if ($post->image)
-                    <img src="{{ Storage::url($post->image) }}" alt="" title="" />
+                @if ($post->image && Storage::url($post->image))
+                    <img src="{{ Storage::url($post->image) }}" alt="{{ Storage::url($post->image) }}" title="{{ Storage::url($post->image) }}" />
                 @else
                     <img src="/images/default-post-image.jpg" alt="" >
                 @endif
