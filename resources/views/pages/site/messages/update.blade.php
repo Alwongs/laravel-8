@@ -4,8 +4,6 @@
         <h2 class="home-title">Ulyanovsk</h2>
     </section>
 
-    @include('layouts.site-top-panel')
-
     <header class="header">
         <h1>{{ __('New message') }}</h1>
     </header>

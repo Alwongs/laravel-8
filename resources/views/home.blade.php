@@ -4,8 +4,6 @@
         <h2 class="home-title">Ulyanovsk</h2>
     </section>
 
-    @include('layouts.site-top-panel')
-
     @include('blocks.recent-posts')
 
 </x-site-layout>

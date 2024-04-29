@@ -21,6 +21,7 @@
         @include('layouts.aside')      
 
         <div class="website">
+            @include('layouts.site-top-panel')
             {{ $slot }}
         </div>
 
