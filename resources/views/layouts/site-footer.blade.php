@@ -9,13 +9,6 @@
         </div>
 
         <div class="footer__flex-item footer-contacts">
-            <h4 class="footer-contacts__title">Contact us</h4>
-            <ul class="footer-contacts__list">
-                <li class="footer-contacts__item">Vkontakte</li>
-                <li class="footer-contacts__item">Watsapp</li>
-                <li class="footer-contacts__item">Telegram</li>
-                <li class="footer-contacts__item">Email</li>
-            </ul>
             <p>Developed by Alex Wong 2024</p>
         </div>
     </div>

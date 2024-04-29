@@ -66,7 +66,7 @@ a {
 
 .container {
     // border: 3px solid green;
-    width: 1200px;
+    width: 1000px;
     margin: 0 auto;
     padding: 0 10px;
     gap: 10px;
@@ -108,4 +108,38 @@ a {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+}
+
+
+.section {
+    padding: 30px 0;
+    width: 100%;
+    &__title {
+        text-align: center;
+        margin-bottom: 30px;
+        h2 {
+            border-bottom: 3px solid $baseText;
+            width: fit-content;
+            margin: 0 auto;
+        }        
+    }          
+    @media (max-width: $mobile-max) {  
+        margin-bottom: 30px;     
+    }   
+}
+
+.section-banner {
+    position: relative;
+    overflow: hidden;
+    height: 200px;
+    &.section-banner-posts {
+        height: 140px;
+    }
+    img {
+        width: 100%;
+    }         
+    @media (max-width: $mobile-max) {  
+        height: fit-content;  
+        display: none;    
+    }  
 }

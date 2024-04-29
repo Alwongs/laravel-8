@@ -122,7 +122,7 @@ a {
 }
 
 .container {
-  width: 1200px;
+  width: 1000px;
   margin: 0 auto;
   padding: 0 10px;
   gap: 10px;
@@ -177,6 +177,45 @@ a {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+}
+
+.section {
+  padding: 30px 0;
+  width: 100%;
+}
+.section__title {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.section__title h2 {
+  border-bottom: 3px solid rgb(0, 83, 118);
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 auto;
+}
+@media (max-width: 767px) {
+  .section {
+    margin-bottom: 30px;
+  }
+}
+
+.section-banner {
+  position: relative;
+  overflow: hidden;
+  height: 200px;
+}
+.section-banner.section-banner-posts {
+  height: 140px;
+}
+.section-banner img {
+  width: 100%;
+}
+@media (max-width: 767px) {
+  .section-banner {
+    height: -moz-fit-content;
+    height: fit-content;
+    display: none;
+  }
 }
 
 .top-panel {
@@ -323,7 +362,7 @@ a {
   }
 }
 .container-footer p {
-  color: white;
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .footer-contacts {
@@ -474,7 +513,7 @@ a {
   display: flex;
   justify-content: center;
   gap: 15px;
-  margin-top: 16px;
+  margin-bottom: 30px;
 }
 @media (max-width: 767px) {
   .btn-block {
@@ -665,36 +704,6 @@ select {
   text-align: center;
 }
 
-.section {
-  width: 100%;
-  margin-bottom: 70px;
-}
-@media (max-width: 767px) {
-  .section {
-    margin-bottom: 30px;
-  }
-}
-
-.section-banner {
-  position: relative;
-  overflow: hidden;
-  height: 200px;
-  margin-bottom: 0;
-}
-.section-banner.section-banner-posts {
-  height: 140px;
-}
-.section-banner img {
-  width: 100%;
-}
-@media (max-width: 767px) {
-  .section-banner {
-    height: -moz-fit-content;
-    height: fit-content;
-    display: none;
-  }
-}
-
 .home-title {
   text-align: center;
   position: absolute;
@@ -738,16 +747,13 @@ select {
   }
 }
 
-.recent-posts-title {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
 .recent-posts-block {
   list-style: none;
   display: flex;
   justify-content: center;
-  gap: 70px;
+  flex-wrap: wrap;
+  gap: 50px;
+  margin-bottom: 30px;
 }
 @media (min-width: 1024px) and (max-width: 1439px) {
   .recent-posts-block {
@@ -768,7 +774,7 @@ select {
 
 .post-card {
   border-radius: 10px;
-  width: 250px;
+  flex: 0 1 250px;
   padding: 10px;
 }
 @media (max-width: 767px) {
