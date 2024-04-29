@@ -14,7 +14,11 @@
             <table class="simple-table">
                 <tr>
                     <td class="simple-table__key">ip_address:</td>
-                    <td>{{ $vizit->ip_address }}</td>
+                    @if($vizit->request_uri == '/dashboard')
+                        <td style="color:red;">{{ $vizit->ip_address }}</td>
+                    @else
+                        <td>{{ $vizit->ip_address }}</td>
+                    @endif
                 </tr>   
                 <tr>
                     <td class="simple-table__key">country:</td>

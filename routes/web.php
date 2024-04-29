@@ -9,6 +9,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\VizitController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +48,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/vizits', [VizitController::class, 'index'])->name('vizits');
     Route::get('/vizit/{id}', [VizitController::class, 'show'])->name('vizit');
     Route::get('/clear-vizits', [VizitController::class, 'clear'])->name('clear-vizits');
+
+    Route::get('/users', [UserController::class, 'index'])->name('users');
+
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/events/postpone/{id}', [DashboardController::class, 'postpone'])->name('events.postpone');

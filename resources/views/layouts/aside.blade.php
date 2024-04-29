@@ -21,12 +21,28 @@
             <a href="{{ route('dashboard') }}">Dashboard</a>
             <a href="{{ route('events.index') }}">Events</a>
             <a href="{{ route('posts.index') }}">Posts</a>
-            <a href="{{ route('vizits') }}">Vizits</a>
+
+            <a href="{{ route('vizits') }}">
+                <span>Vizits </span>
+                @if(Session::has('vizitCount'))
+                    <span style="color:green;fomt-weight:600;">
+                        {{ Session::get('vizitCount')}}
+                    </span>
+                @endif
+            </a>
             <a href="{{ route('messages') }}">
                 <span>Messages </span>
                 @if(Session::has('messageCount'))
                     <span style="color:green;fomt-weight:600;">
                         {{ Session::get('messageCount')}}
+                    </span>
+                @endif
+            </a>
+            <a href="{{ route('users') }}">
+                <span>users </span>
+                @if(Session::has('userCount'))
+                    <span style="color:green;fomt-weight:600;">
+                        {{ Session::get('userCount')}}
                     </span>
                 @endif
             </a>
