@@ -16,7 +16,7 @@ class HomeController extends Controller
 
         VizitHelper::saveVizit($_SERVER);
 
-        $posts = Post::orderBy('id', 'desc')->take(3)->get();
+        $posts = Post::orderBy('id', 'desc')->take(6)->get();
 
         return view('home', compact('posts'));
     }
