@@ -4,16 +4,13 @@
         <a id="top-panel-menu-link" class="top-panel__menu-link">Menu</a>
         
         <nav class="top-panel__navigation">
-            @auth
-                <a href="/dashboard">Dashboard</a> 
-            @endauth
             <a href="{{ url('blog') }}">Blog</a> 
-            <a href="#">Gallery</a> 
+            <a href="{{ route('gallery') }}">Gallery</a> 
         </nav>
         
         <div class="top-panel__auth">
             @auth
-                <a href="#">{{ Auth::user()->name }}</a>
+                <a href="{{ route('profile', Auth::user()->id) }}">{{ Auth::user()->name }}</a>
             @else
                 <a href="{{ route('login') }}">Login</a>   
                 <!-- <a href="{{ route('register') }}" class="">Register</a> -->

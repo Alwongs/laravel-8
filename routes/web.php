@@ -10,6 +10,8 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\VizitController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +39,8 @@ Route::get('/post/{id}', [BlogController::class, 'show'])->name('post');
 Route::get('/contact-us', [MessageController::class, 'create'])->name('contact-us');
 Route::get('/create-message', [MessageController::class, 'create'])->name('create-message');
 Route::post('/store-message', [MessageController::class, 'store'])->name('store-message');
+Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery');
+Route::get('/profile/{id}', [ProfileController::class, 'show'])->name('profile');
 
 
 Route::middleware('auth')->group(function () {
