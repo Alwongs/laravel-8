@@ -10,7 +10,7 @@
         <nav class="aside-navigation__body nav-site">
             <a href="{{ route('home') }}">Home</a>
             <a href="{{ route('blog') }}">Blog</a>
-            <a style="color:grey;" href="#">Gallery <small style="color:grey;">(not ready yet)</small></a>
+            <a href="{{ route('gallery') }}">Gallery</a>
         </nav>
     </div>
 
