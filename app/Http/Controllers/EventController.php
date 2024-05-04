@@ -13,7 +13,7 @@ class EventController extends Controller
 {
     public function index()
     {
-        $events = Event::where('user_id', Auth::id())->orderBy('timestamp', 'ASC')->get();
+        $events = Event::where('user_id', Auth::id())->orderBy('timestamp', 'ASC')->paginate(10);
         return view('pages/admin/events/manage', compact('events'));
     }
 

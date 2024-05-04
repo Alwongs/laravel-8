@@ -18,34 +18,37 @@
     <div class="aside-navigation">
         <h2 class="aside-navigation__title">Administation</h2>
         <nav class="aside-navigation__body nav-admin">
+            
             <a href="{{ route('dashboard') }}">Dashboard</a>
             <a href="{{ route('events.index') }}">Events</a>
             <a href="{{ route('posts.index') }}">Posts</a>
 
-            <a href="{{ route('vizits') }}">
-                <span>Vizits </span>
-                @if(Session::has('vizitCount'))
-                    <span style="color:green;fomt-weight:600;">
-                        {{ Session::get('vizitCount')}}
-                    </span>
-                @endif
-            </a>
-            <a href="{{ route('messages') }}">
-                <span>Messages </span>
-                @if(Session::has('messageCount'))
-                    <span style="color:green;fomt-weight:600;">
-                        {{ Session::get('messageCount')}}
-                    </span>
-                @endif
-            </a>
-            <a href="{{ route('users') }}">
-                <span>users </span>
-                @if(Session::has('userCount'))
-                    <span style="color:green;fomt-weight:600;">
-                        {{ Session::get('userCount')}}
-                    </span>
-                @endif
-            </a>
+            @if (Auth::user()->is_root)
+                <a href="{{ route('vizits') }}">
+                    <span>Vizits </span>
+                    @if(Session::has('vizitCount'))
+                        <span style="color:green;fomt-weight:600;">
+                            {{ Session::get('vizitCount')}}
+                        </span>
+                    @endif
+                </a>
+                <a href="{{ route('messages') }}">
+                    <span>Messages </span>
+                    @if(Session::has('messageCount'))
+                        <span style="color:green;fomt-weight:600;">
+                            {{ Session::get('messageCount')}}
+                        </span>
+                    @endif
+                </a>
+                <a href="{{ route('users') }}">
+                    <span>users </span>
+                    @if(Session::has('userCount'))
+                        <span style="color:green;fomt-weight:600;">
+                            {{ Session::get('userCount')}}
+                        </span>
+                    @endif
+                </a>
+            @endif
         </nav>
     </div>
     @endauth

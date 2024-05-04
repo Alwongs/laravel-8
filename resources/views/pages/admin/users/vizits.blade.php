@@ -26,24 +26,19 @@
                         {{ $vizit->created_at->setTimezone('Europe/Ulyanovsk')->format("d.m.Y H:i") }}
                     </div> 
 
-                    <div class="manage-list__item-ip" title="{{ $vizit->request_uri }}">
-                        @if($vizit->ip_address == '176.116.141.115')
-                            <span style="color:green;">Evo-73 provider</span>
-                        @else
-                            {{ $vizit->ip_address }}
-                        @endif
+                    <div class="manage-list__item-city" title="{{ $vizit->request_uri }}">
+                        <a href="{{ route('vizit', $vizit->id) }}">
+                            @if($vizit->ip_address == '176.116.141.115')
+                                Evo-73 provider
+                            @elseif($vizit->ip_address == '')
+                                Bot
+                            @elseif($vizit->ip_address == '127.0.0.1')
+                                Local
+                            @else
+                                {{ $vizit->city }}
+                            @endif
+                        </a>
                     </div>   
-
-                    <div class="manage-list__item-ip" title="{{ $vizit->user_agent }}">
-                        {{ $vizit->country }}
-                    </div>   
-
-                    <div class="manage-list__item-ip" title="{{ $vizit->user_agent }}">
-                        {{ $vizit->city }}
-                    </div> 
-                    
-                    <a href="{{ route('vizit', $vizit->id) }}">Look</a>
-
                 </li>        
                 @endforeach
             </ul>          

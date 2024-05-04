@@ -15,7 +15,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::where('user_id', Auth::id())->orderBy('created_at', 'desc')->get();
+        $posts = Post::where('user_id', Auth::id())->orderBy('created_at', 'desc')->paginate(10);
         return view('pages/admin/posts/manage', compact('posts'));
     }
 

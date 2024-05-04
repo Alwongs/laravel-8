@@ -16,6 +16,9 @@
 }
 
 .manage-list {
+    // li > div {
+    //     border: 1px solid red;
+    // }
     &__item-image {
         background-color: rgba(45, 67, 85, 0.5);
         border: 1px solid rgb(45, 67, 85);
@@ -30,12 +33,32 @@
 
     }
     &__item-date-time {
-// border: 1px solid red;
-padding-right: 30px;
+        // border: 1px solid red;
+        padding-right: 30px;
     }
     &__item-ip {
         // border: 1px solid red;
-        flex: 1 0 auto;
+        flex: 1 0 100px;
+        @media (max-width: $mobile-max) {  
+            display: none;               
+        } 
+    }
+    &__item-ip {
+        @media (max-width: $mobile-max) {  
+            display: none;               
+        } 
+    }
+
+    &__item-country {
+        @media (max-width: $mobile-max) {  
+            display: none;               
+        } 
+    }
+    &__item-city {
+        flex: 1 0 300px;
+        a {
+            color: lighten($baseText, 9); 
+        }
     }
     &__item-title {
         flex: 1 0 300px;
@@ -74,7 +97,7 @@ padding-right: 30px;
             display: none;
         }                 
     }
-    &__type {
+    &__item-type {
         flex: 0 0 80px;     
         @media (max-width: $desktop-max) {  
             display: none;                

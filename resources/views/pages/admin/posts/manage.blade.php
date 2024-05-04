@@ -32,7 +32,11 @@
                 </form>     
             </li>        
             @endforeach
-        </ul>        
+        </ul>  
+        
+        <div class="pagination-block">
+            {{ $posts->links() }}
+        </div>
 
     </main>
 

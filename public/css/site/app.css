@@ -1001,3 +1001,7 @@ select {
 .blog-page-item__footer:hover {
   opacity: 0.8;
 }
+
+.profile-block {
+  margin-bottom: 20px;
+}

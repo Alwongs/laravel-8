@@ -40,6 +40,9 @@
             @endforeach
         </ul>        
 
+        <div class="pagination-block">
+            {{ $events->links() }}
+        </div>
     </main>
 
 </x-admin-layout>
