@@ -59,6 +59,9 @@
         a {
             color: lighten($baseText, 9); 
         }
+        @media (max-width: $mobile-max) {  
+            flex: 1 0 auto;             
+        } 
     }
     &__item-title {
         flex: 1 0 300px;
