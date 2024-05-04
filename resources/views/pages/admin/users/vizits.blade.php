@@ -41,8 +41,11 @@
                     </div>   
                 </li>        
                 @endforeach
-            </ul>          
+            </ul>   
 
+            <div class="pagination-block">
+                {{ $vizits->links() }}
+            </div>
         </main>
     @endif
 

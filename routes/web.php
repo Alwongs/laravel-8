@@ -40,10 +40,12 @@ Route::get('/contact-us', [MessageController::class, 'create'])->name('contact-u
 Route::get('/create-message', [MessageController::class, 'create'])->name('create-message');
 Route::post('/store-message', [MessageController::class, 'store'])->name('store-message');
 Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery');
-Route::get('/profile/{id}', [ProfileController::class, 'show'])->name('profile');
+
 
 
 Route::middleware('auth')->group(function () {
+
+    Route::get('/profile/{id}', [ProfileController::class, 'show'])->name('profile');
 
     Route::get('/messages', [MessageController::class, 'index'])->name('messages');
     Route::get('/clear-messages', [MessageController::class, 'clear'])->name('clear-messages');

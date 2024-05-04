@@ -13,6 +13,10 @@
                     @endforeach
                 </ul>
             @endisset
+
+            <div class="pagination-block">
+                {{ $posts->links() }}
+            </div>
         </main>
     </section>
 

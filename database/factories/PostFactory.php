@@ -17,7 +17,8 @@ class PostFactory extends Factory
             'post' => $this->faker->name,
             'description' => $this->faker->text,
             'image' => $this->faker->word . '.jpg',
-            'user_id' => 1
+            'user_id' => 1,
+            'created_at' => $this->faker->unique()->dateTimeBetween($startDate = '-1 day', $endDate = '+1 year', $timezone = null)
         ];
     }
 }

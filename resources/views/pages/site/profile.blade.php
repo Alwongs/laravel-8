@@ -1,4 +1,5 @@
 <x-site-layout>
+
     <section class="section-banner">
         <img src="{{ Storage::url('/site/main.jpg') }}" alt="main image" />
         <h2 class="home-title">Profile</h2>
@@ -6,7 +7,6 @@
 
     <section class="section">
         <div class="user-info container">
-            
             <div class="profile-block">
                 <h2>{{ $user->name }}</h2>
                 <p>{{ $user->email }}</p>
@@ -19,6 +19,5 @@
             </div>
         </div>
     </section>
-
 
 </x-site-layout>
