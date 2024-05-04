@@ -16,3 +16,5 @@ yarn-error.log
 *.sql
 public_html
 Z-HELP.txt
+*.gz
+*.zip
