@@ -5415,6 +5415,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var alpinejs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/module.esm.js");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 __webpack_require__(/*! ./menu */ "./resources/js/menu.js");
+__webpack_require__(/*! ./gallery */ "./resources/js/gallery.js");
 
 window.Alpine = alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"];
 alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"].start();
@@ -5454,6 +5455,29 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/gallery.js":
+/*!*********************************!*\
+  !*** ./resources/js/gallery.js ***!
+  \*********************************/
+/***/ (() => {
+
+var images = document.querySelectorAll('.slider .slider-line img');
+var cliderLine = document.querySelector('.slider-line');
+var count = 0;
+var width;
+function init() {
+  console.log('resize');
+  width = document.querySelector('.slider').offsetWidth;
+  cliderLine.style.width = width * images.length + 'px';
+  images.forEach(function (item) {
+    item.style.width = width + 'px';
+    item.style.height = 'auto';
+  });
+}
+init();
 
 /***/ }),
 
