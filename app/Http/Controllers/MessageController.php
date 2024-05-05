@@ -38,6 +38,7 @@ class MessageController extends Controller
             $message['user_id'] = Auth::user() ? Auth::user()->id : 0;
             if (!empty($server['REMOTE_ADDR'])) {
                 $response = IpApi::default($_SERVER['REMOTE_ADDR'])->fields(['city', 'country'])->lang('ru')->lookup();
+                $message['ip_address'] = $server['REMOTE_ADDR'];
                 $message['city'] = !empty($response['city']) ? $response['city'] : "";
                 $message['country'] = !empty($response['country']) ? $response['country'] : "";
             }

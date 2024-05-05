@@ -12,6 +12,7 @@ use App\Http\Controllers\VizitController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SettingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,6 +65,7 @@ Route::middleware('auth')->group(function () {
     Route::resources([
         'events' => EventController::class,
         'posts' => PostController::class, 
+        'settings' => SettingController::class, 
     ]);
 });
 

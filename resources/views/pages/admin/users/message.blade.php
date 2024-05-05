@@ -15,10 +15,14 @@
                 <tr>
                     <td class="simple-table__key">datetime:</td>
                     <td>{{ $message->created_at->setTimezone('Europe/Ulyanovsk')->format("d.m.Y H:i") }}</td>
-                </tr>   
+                </tr>    
                 <tr>
                     <td class="simple-table__key">name:</td>
                     <td>{{ $message->name }}</td>
+                </tr>  
+                <tr>
+                    <td class="simple-table__key">ip address:</td>
+                    <td>{{ $message->ip_address }}</td>
                 </tr> 
                 <tr>
                     <td class="simple-table__key">city:</td>

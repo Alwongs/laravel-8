@@ -48,6 +48,9 @@
                         </span>
                     @endif
                 </a>
+                <a href="{{ route('settings.create') }}">
+                    <span>Settings</span>
+                </a>
             @endif
         </nav>
     </div>

@@ -1,17 +1,20 @@
 .slider {
     border: 2px solid black;
-    max-width: 60%;
+    max-width: 500px;
     margin: 20px auto;
-    // overflow: hidden;
+    overflow: hidden;
 }
 
 .slider-line {
     display: flex;
-    // background: orangered;
-    // transition: all ease 1s;
+    background: orangered;
+    transition: all ease 0.6s;
     // height: 300px;
     // img {
     //     height: 100%;
     // }
+
+}
+.slider-prev, .slider-next {
 
 }
