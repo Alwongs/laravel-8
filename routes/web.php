@@ -13,6 +13,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SettingController;
+use App\Http\Controllers\AlbumController;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,9 +64,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/events/postpone/{id}', [DashboardController::class, 'postpone'])->name('events.postpone');
 
     Route::resources([
-        'events' => EventController::class,
-        'posts' => PostController::class, 
+        'events'   => EventController::class,
+        'posts'    => PostController::class, 
         'settings' => SettingController::class, 
+        'albums'   => AlbumController::class
     ]);
 });
 

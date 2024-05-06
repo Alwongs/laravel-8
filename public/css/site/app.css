@@ -261,9 +261,19 @@ a {
   }
 }
 .top-panel a {
+  position: relative;
   font-size: 18px;
   color: white;
   cursor: pointer;
+}
+.top-panel a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  border-bottom: 4px solid transparent;
+  width: 0;
+  transition: ease 0.4s;
 }
 @media (max-width: 767px) {
   .top-panel a {
@@ -271,7 +281,11 @@ a {
   }
 }
 .top-panel a:hover {
-  color: rgb(255, 255, 255);
+  color: yellow;
+}
+.top-panel a:hover::after {
+  width: 100%;
+  border-bottom: 4px solid yellow;
 }
 .top-panel__navigation {
   display: flex;

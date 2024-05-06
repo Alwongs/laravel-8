@@ -24,6 +24,10 @@
             <a href="{{ route('posts.index') }}">Posts</a>
 
             @if (Auth::user()->is_root)
+                <a href="{{ route('albums.index') }}">
+                    <span>Albums</span>
+                </a>
+
                 <a href="{{ route('vizits') }}">
                     <span>Vizits </span>
                     @if(Session::has('vizitCount'))
@@ -32,6 +36,7 @@
                         </span>
                     @endif
                 </a>
+
                 <a href="{{ route('messages') }}">
                     <span>Messages </span>
                     @if(Session::has('messageCount'))
@@ -40,6 +45,7 @@
                         </span>
                     @endif
                 </a>
+
                 <a href="{{ route('users') }}">
                     <span>users </span>
                     @if(Session::has('userCount'))
@@ -48,6 +54,7 @@
                         </span>
                     @endif
                 </a>
+
                 <a href="{{ route('settings.create') }}">
                     <span>Settings</span>
                 </a>

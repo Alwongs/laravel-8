@@ -26,15 +26,29 @@
         }   
     }
     a {
+        position: relative;
         font-size: 18px;
         color: white;
         cursor: pointer;
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            border-bottom: 4px solid transparent;
+            width: 0;
+            transition: ease 0.4s;
+        }
         @media (max-width: $mobile-max) {  
             font-weight: bold;
         } 
     }
     a:hover {
-        color: rgb(255, 255, 255);
+        color: yellow;
+        &::after {
+            width: 100%;
+            border-bottom: 4px solid yellow;
+        }
     }
     &__navigation {
         display: flex;
