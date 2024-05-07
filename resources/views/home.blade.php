@@ -19,4 +19,18 @@
         </div>
     </section>
 
+    <section class="section">
+        <div class="container">
+            <div class="section__title">
+                <h2>Slider<h2>
+            </div>
+
+            @include('blocks.slider')
+
+            <div class="btn-block">
+                <a href="" class="btn">All Albums</a>
+            </div>
+        </div>
+    </section>
+
 </x-site-layout>

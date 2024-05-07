@@ -14,6 +14,7 @@ use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\AlbumController;
+use App\Http\Controllers\PhotoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,7 +43,8 @@ Route::get('/contact-us', [MessageController::class, 'create'])->name('contact-u
 Route::get('/create-message', [MessageController::class, 'create'])->name('create-message');
 Route::post('/store-message', [MessageController::class, 'store'])->name('store-message');
 Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery');
-
+Route::get('/album/{id}', [GalleryController::class, 'show'])->name('album');
+Route::get('/photo/{id}', [GalleryController::class, 'showPhoto'])->name('photo');
 
 
 Route::middleware('auth')->group(function () {
@@ -67,7 +69,8 @@ Route::middleware('auth')->group(function () {
         'events'   => EventController::class,
         'posts'    => PostController::class, 
         'settings' => SettingController::class, 
-        'albums'   => AlbumController::class
+        'albums'   => AlbumController::class,
+        'photos'   => PhotoController::class
     ]);
 });
 

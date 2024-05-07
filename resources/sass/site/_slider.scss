@@ -1,0 +1,15 @@
+.slider {
+    border: 2px solid black;
+    max-width: 600px;
+    height: 400px;
+    margin: 20px auto;
+    overflow: hidden;
+    @media (max-width: $mobile-max) {  
+        height: auto;        
+    } 
+}
+.slider-line {
+    display: flex;
+    background: lightgrey;
+    transition: all ease 0.6s;
+}

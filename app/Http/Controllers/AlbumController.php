@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Album;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\Album\StoreRequest;
 
 class AlbumController extends Controller
 {
@@ -14,7 +17,8 @@ class AlbumController extends Controller
      */
     public function index()
     {
-        //
+        $albums = Album::orderBy('created_at', 'desc')->paginate(10);
+        return view('pages/admin/albums/manage', compact('albums'));
     }
 
     /**
@@ -22,9 +26,9 @@ class AlbumController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        return view('pages/admin/albums/update');
     }
 
     /**
@@ -33,9 +37,25 @@ class AlbumController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
-        //
+        if ($request->validated()) {
+
+            $album = $request->all();
+
+            if ($request->hasFile('image')) {
+                $image = $request->file('image');
+                $newImageName = date('d-m-Y_h-i-s', time()) . '_' . rand(1000, 9999) . '_image.' . $image->getClientOriginalExtension();
+                $path = $image->storeAs('albums', $newImageName);
+                $album['image'] = $path;
+            } else {
+                return redirect()->back()->with('status', 'Select image!'); 
+            }
+
+            Album::create($album);
+            
+            return redirect()->route('albums.index')->with('info', 'Album has been added!'); 
+        }
     }
 
     /**

@@ -16,7 +16,7 @@
 
     @auth
     <div class="aside-navigation">
-        <h2 class="aside-navigation__title">Administation</h2>
+        <h2 class="aside-navigation__title">Admin panel</h2>
         <nav class="aside-navigation__body nav-admin">
             
             <a href="{{ route('dashboard') }}">Dashboard</a>
@@ -26,6 +26,9 @@
             @if (Auth::user()->is_root)
                 <a href="{{ route('albums.index') }}">
                     <span>Albums</span>
+                </a>
+                <a href="{{ route('photos.index') }}">
+                    <span>Photos</span>
                 </a>
 
                 <a href="{{ route('vizits') }}">

@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Album;
 use App\Models\Photo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\Photo\StoreRequest;
 
 class PhotoController extends Controller
 {
@@ -14,7 +18,8 @@ class PhotoController extends Controller
      */
     public function index()
     {
-        //
+        $photos = Photo::orderBy('created_at', 'desc')->paginate(10);
+        return view('pages/admin/photos/manage', compact('photos'));
     }
 
     /**
@@ -24,7 +29,12 @@ class PhotoController extends Controller
      */
     public function create()
     {
-        //
+        if (Auth::user()->is_root) {
+            $albums = Album::all();
+            return view('pages/admin/photos/update', compact('albums'));
+        } else {
+            return redirect()->back()->with('status', 'access denied!'); 
+        }
     }
 
     /**
@@ -33,9 +43,25 @@ class PhotoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
-        //
+        if ($request->validated()) {
+
+            $photo = $request->all();
+
+            if ($request->hasFile('image')) {
+                $image = $request->file('image');
+                $newImageName = date('d-m-Y_h-i-s', time()) . '_' . rand(1000, 9999) . '_image.' . $image->getClientOriginalExtension();
+                $path = $image->storeAs('photos/' . $photo['album_id'], $newImageName);
+                $photo['image'] = $path;
+            } else {
+                return redirect()->back()->with('status', 'Select image!'); 
+            }
+
+            Photo::create($photo);
+            
+            return redirect()->route('photos.index')->with('info', 'Photo has been added!'); 
+        }
     }
 
     /**
@@ -80,6 +106,18 @@ class PhotoController extends Controller
      */
     public function destroy(Photo $photo)
     {
-        //
+        if (Auth::user()->is_root) {
+
+            if($photo->image) {
+                Storage::delete($photo->image);
+            }
+
+            $photo->delete();
+
+            return redirect()->back()->with('info', 'Запись успешно удалена'); 
+
+        } else {
+            return redirect()->back()->with('status', 'Это не ваш пост! Не вам и удалять!');              
+        }
     }
 }

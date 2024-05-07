@@ -15,6 +15,10 @@ class CreatePhotosTable extends Migration
     {
         Schema::create('photos', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('album_id')->constrained()->onDelete('cascade');
+            $table->string('title', 255);
+            $table->text('description')->nullable();
+            $table->string('image');
             $table->timestamps();
         });
     }
