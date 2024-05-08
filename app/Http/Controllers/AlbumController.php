@@ -100,6 +100,22 @@ class AlbumController extends Controller
      */
     public function destroy(Album $album)
     {
-        //
+        if (Auth::user()->is_root) {
+
+            if($album->image) {
+                Storage::delete($album->image);
+            }
+
+            $photos = $album->photos;
+            foreach($photos as $photo) {
+                Storage::delete($photo->image);
+            }
+
+            $album->delete();
+
+            return redirect()->back()->with('info', 'Запись успешно удалена'); 
+        } else {
+            return redirect()->back()->with('status', 'Это не ваш пост! Не вам и удалять!');              
+        }
     }
 }

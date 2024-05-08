@@ -26,10 +26,12 @@
                     <div class="manage-list__item-date">{{ date("d.m.Y", strtotime($album->created_at)) }}</div>
 
                     <a href="{{ route('albums.edit', $album->id) }}" class="cell-btn btn-icon-edit"></a>
+
                     <form action="{{ route('albums.destroy', $album->id) }}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button href="{{ route('albums.destroy', $album->id) }}" class="cell-btn btn-icon-delete"></button> 
+                        
+                        <button type="submit" class="cell-btn btn-icon-delete"></button> 
                     </form>     
                 </li>        
                 @endforeach

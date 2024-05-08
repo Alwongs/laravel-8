@@ -22,7 +22,6 @@ class MessageController extends Controller
     public function show($id) {
 
         $message = Message::find($id);
-
         return view('pages/admin/users/message', compact('message'));
     }
 
@@ -36,6 +35,7 @@ class MessageController extends Controller
 
             $message = $request->all();
             $message['user_id'] = Auth::user() ? Auth::user()->id : 0;
+            
             if (!empty($server['REMOTE_ADDR'])) {
                 $response = IpApi::default($_SERVER['REMOTE_ADDR'])->fields(['city', 'country'])->lang('ru')->lookup();
                 $message['ip_address'] = $server['REMOTE_ADDR'];
