@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use File;
 use App\Models\Album;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -104,11 +105,7 @@ class AlbumController extends Controller
 
             if($album->image) {
                 Storage::delete($album->image);
-            }
-
-            $photos = $album->photos;
-            foreach($photos as $photo) {
-                Storage::delete($photo->image);
+                File::deleteDirectory(public_path('storage/photos/' . $album->id . '/'));
             }
 
             $album->delete();
