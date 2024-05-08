@@ -31,6 +31,6 @@
                 <a href="" class="btn">All Albums</a>
             </div>
         </div>
-    </section>
+    </section>   
 
 </x-site-layout>

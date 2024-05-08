@@ -1,9 +1,9 @@
 <div class="slider">
     <div class="slider-line">
-        <img src="{{ Storage::url('/gallery/static/kazan.jpg') }}" alt="">
-        <img src="{{ Storage::url('/gallery/static/moscow.webp') }}" alt="">
-        <img src="{{ Storage::url('/gallery/static/paris.jpg') }}" alt="">
-        <img src="{{ Storage::url('/gallery/static/sardegna.jpg') }}" alt="">
+        <img loading="lazy" src="{{ Storage::url('/gallery/static/kazan.jpg') }}" alt="">
+        <img loading="lazy" src="{{ Storage::url('/gallery/static/moscow.webp') }}" alt="">
+        <img loading="lazy" src="{{ Storage::url('/gallery/static/paris.jpg') }}" alt="">
+        <img loading="lazy" src="{{ Storage::url('/gallery/static/sardegna.jpg') }}" alt="">
     </div>
 </div>
 

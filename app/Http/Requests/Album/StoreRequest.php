@@ -24,7 +24,7 @@ class StoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'title'        => ['required', 'string', 'max:255'],
+            'title'       => ['required', 'unique:albums,title', 'string', 'max:255'],
             'description' => ['nullable', 'string'],
             'image'       => ['nullable', 'image:jpg,jpeg,png,webp', 'max:3000']
         ];

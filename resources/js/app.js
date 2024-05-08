@@ -1,6 +1,7 @@
 require('./bootstrap');
 require('./menu');
 require('./gallery');
+require('./form');
 
 import Alpine from 'alpinejs';
 

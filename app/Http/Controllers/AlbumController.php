@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use File;
+use App\Functions\TextHelper;
 use App\Models\Album;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -46,7 +47,7 @@ class AlbumController extends Controller
 
             if ($request->hasFile('image')) {
                 $image = $request->file('image');
-                $newImageName = date('d-m-Y_h-i-s', time()) . '_' . rand(1000, 9999) . '_image.' . $image->getClientOriginalExtension();
+                $newImageName = TextHelper::buildAlbumImageName($album['title'],$image->getClientOriginalExtension());
                 $path = $image->storeAs('albums', $newImageName);
                 $album['image'] = $path;
             } else {
@@ -105,7 +106,7 @@ class AlbumController extends Controller
 
             if($album->image) {
                 Storage::delete($album->image);
-                File::deleteDirectory(public_path('storage/photos/' . $album->id . '/'));
+                File::deleteDirectory(public_path('storage/photos/' . TextHelper::transliterate($album->title) . '/'));
             }
 
             $album->delete();
@@ -114,5 +115,5 @@ class AlbumController extends Controller
         } else {
             return redirect()->back()->with('status', 'Это не ваш пост! Не вам и удалять!');              
         }
-    }
+    }  
 }

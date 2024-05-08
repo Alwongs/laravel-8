@@ -47,7 +47,7 @@
 
 
             <div class="form__btn-block">
-                <button type="submit" class="btn btn-green">
+                <button type="submit" class="btn btn-green submit">
                     @if(isset($album))
                         Update
                     @else

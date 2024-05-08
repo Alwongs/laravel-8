@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Functions\TextHelper;
 use App\Models\Album;
 use App\Models\Photo;
 use Illuminate\Http\Request;
@@ -48,11 +49,15 @@ class PhotoController extends Controller
         if ($request->validated()) {
 
             $photo = $request->all();
+            $album = Album::find($photo['album_id']);
 
             if ($request->hasFile('image')) {
                 $image = $request->file('image');
-                $newImageName = date('d-m-Y_h-i-s', time()) . '_' . rand(1000, 9999) . '_image.' . $image->getClientOriginalExtension();
-                $path = $image->storeAs('photos/' . $photo['album_id'], $newImageName);
+
+                $newImageName = TextHelper::buildAlbumImageName($photo['title'], $image->getClientOriginalExtension());
+                $albumName = TextHelper::transliterate($album->title);
+
+                $path = $image->storeAs('photos/'.$albumName, $newImageName);
                 $photo['image'] = $path;
             } else {
                 return redirect()->back()->with('status', 'Select image!'); 
