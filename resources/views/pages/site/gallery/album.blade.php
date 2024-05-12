@@ -1,7 +1,7 @@
 <x-site-layout>
     <section class="section-banner">
         <img src="{{ Storage::url('/site/main.jpg') }}" alt="main image" />
-        <h2 class="home-title">{{ __("Album") }}</h2>
+        <h2 class="home-title">{{ $album->title }}</h2>
     </section>
 
     <section class="section">

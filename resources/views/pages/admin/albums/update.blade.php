@@ -26,7 +26,7 @@
             @csrf
 
             <div class="form__input-block">
-                <input name="title" type="text" placeholder="post" value="{{ isset($album) ? $album->title : '' }}" required />
+                <input name="title" type="text" placeholder="title" value="{{ isset($album) ? $album->title : '' }}" required />
             </div>    
 
             <div class="form__textarea-block">

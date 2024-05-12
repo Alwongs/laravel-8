@@ -6,7 +6,7 @@
 
     <section class="section">
         <div class="container">
-            @if($albums)
+            @if(count($albums) != 0)
                 <ul class="gallery-list">
                     @foreach ($albums as $album)
                         <li class="album-card">
@@ -22,7 +22,7 @@
                     @endforeach
                 </ul>
             @else
-                <p>No albums</p>
+                <p class="empty-list-note">{{ __("gallery.no_albums") }}</p>
             @endif
 
             <div class="pagination-block">

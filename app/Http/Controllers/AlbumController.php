@@ -47,7 +47,7 @@ class AlbumController extends Controller
 
             if ($request->hasFile('image')) {
                 $image = $request->file('image');
-                $newImageName = TextHelper::buildAlbumImageName($album['title'],$image->getClientOriginalExtension());
+                $newImageName = TextHelper::buildAlbumImageName($album['title'], $image->getClientOriginalExtension());
                 $path = $image->storeAs('albums', $newImageName);
                 $album['image'] = $path;
             } else {
@@ -79,7 +79,7 @@ class AlbumController extends Controller
      */
     public function edit(Album $album)
     {
-        //
+        return view('pages/admin/albums/update', compact('album')); 
     }
 
     /**
@@ -91,7 +91,24 @@ class AlbumController extends Controller
      */
     public function update(Request $request, Album $album)
     {
-        //
+        if ($request->hasFile('image')) {
+
+            if($album->image) {
+                Storage::delete($album->image);
+            }
+
+            $image = $request->file('image');
+            $newImageName = TextHelper::buildAlbumImageName($album->title, $image->getClientOriginalExtension());
+            $path = $image->storeAs('albums', $newImageName);
+            $album->image = $path;
+        }
+
+        $album->title = $request->title;
+        $album->description = $request->description;
+
+        $album->update();
+
+        return redirect()->route('albums.edit', compact('album'))->with('info', 'Album has been updated!'); 
     }
 
     /**

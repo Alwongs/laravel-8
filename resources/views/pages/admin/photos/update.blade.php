@@ -1,6 +1,6 @@
 <x-admin-layout>
     <header class="header">
-        <h1>@isset($photo){{ __('Update') }}@else{{ __('gallery.new_photo') }}@endisset</h1>
+        <h1>@isset($photo){{ __('gallery.edit_photo') }}@else{{ __('gallery.new_photo') }}@endisset</h1>
     </header>
 
     <main class="main">
@@ -17,7 +17,7 @@
             @endif
         </div>
 
-        @if(isset($album))
+        @if(isset($photo))
             <form class="form" action="{{ route('photos.update', $photo) }}" method="POST" enctype="multipart/form-data">
                 @method('PUT')
         @else
@@ -30,7 +30,11 @@
                 <select name="album_id" id="album">
                     <option name="default" value="" style="color:grey;" >Select an album</option>
                     @foreach($albums as $album)
-                        <option name="album_id" value="{{ $album->id }}">{{ $album->title }}</option>
+                        @if($album->id == $photo->album_id)
+                            <option name="album_id" value="{{ $album->id }}" selected>{{ $album->title }}</option>
+                        @else
+                            <option name="album_id" value="{{ $album->id }}">{{ $album->title }}</option>
+                        @endif
                     @endforeach
                 </select>
                 @else
@@ -39,7 +43,7 @@
             </div>  
 
             <div class="form__input-block">
-                <input name="title" type="text" placeholder="post" value="{{ isset($photo) ? $photo->title : '' }}" required />
+                <input name="title" type="text" placeholder="title" value="{{ isset($photo) ? $photo->title : '' }}" required />
             </div>    
 
             <div class="form__textarea-block">

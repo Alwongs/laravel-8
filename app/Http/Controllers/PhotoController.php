@@ -30,12 +30,17 @@ class PhotoController extends Controller
      */
     public function create()
     {
-        if (Auth::user()->is_root) {
-            $albums = Album::all();
-            return view('pages/admin/photos/update', compact('albums'));
-        } else {
+        if (!Auth::user()->is_root) {
             return redirect()->back()->with('status', 'access denied!'); 
         }
+
+        $albums = Album::all();
+
+        if (count($albums) == 0) {
+            return redirect()->route('albums.create')->with('status', 'Create at least one album!'); 
+        }
+
+        return view('pages/admin/photos/update', compact('albums'));
     }
 
     /**
@@ -55,9 +60,9 @@ class PhotoController extends Controller
                 $image = $request->file('image');
 
                 $newImageName = TextHelper::buildAlbumImageName($photo['title'], $image->getClientOriginalExtension());
-                $albumName = TextHelper::transliterate($album->title);
+                $albumDirName = TextHelper::transliterate($album->title);
 
-                $path = $image->storeAs('photos/'.$albumName, $newImageName);
+                $path = $image->storeAs('photos/'.$albumDirName, $newImageName);
                 $photo['image'] = $path;
             } else {
                 return redirect()->back()->with('status', 'Select image!'); 
@@ -88,7 +93,13 @@ class PhotoController extends Controller
      */
     public function edit(Photo $photo)
     {
-        //
+        if (!Auth::user()->is_root) {
+            return redirect()->back()->with('status', 'access denied!'); 
+        }
+
+        $albums = Album::all();
+
+        return view('pages/admin/photos/update', compact('albums', 'photo'));
     }
 
     /**
@@ -100,7 +111,27 @@ class PhotoController extends Controller
      */
     public function update(Request $request, Photo $photo)
     {
-        //
+        if ($request->hasFile('image')) {
+
+            if($photo->image) {
+                Storage::delete($photo->image);
+            }
+
+            $image = $request->file('image');
+            $newImageName = TextHelper::buildAlbumImageName($request->title, $image->getClientOriginalExtension());
+            $album = Album::find($photo->album_id);
+            $albumDirName = TextHelper::transliterate($album->title);
+            $path = $image->storeAs('photos/'.$albumDirName, $newImageName);
+            $photo->image = $path;
+        }
+
+        $photo->album_id = $request->album_id;
+        $photo->title = $request->title;
+        $photo->description = $request->description;
+
+        $photo->update();
+
+        return redirect()->route('photos.edit', compact('photo'))->with('info', 'Photo has been updated!'); 
     }
 
     /**
