@@ -4,11 +4,6 @@ namespace App\Functions;
 
 class TextHelper
 {
-    public static function buildAlbumImageName($name, $extension)
-    {
-        return self::transliterate($name) . '_' . date('d-m-Y_h-i-s', time()) . '_image.' . $extension;
-    }
-
     public static function transliterate($string) 
     {
         $converter = array(
